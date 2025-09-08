@@ -1,0 +1,324 @@
+/* ProfessionalAppFix.css - Comprehensive styling to create a professional look for GroceMate app */
+
+/* Fix icon visibility in all buttons and tab bars */
+ion-icon {
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-size: 22px !important;
+  color: var(--ion-text-color, #333333) !important;
+  display: block !important;
+  pointer-events: auto !important;
+}
+
+/* Fix toolbar and back button appearance */
+ion-toolbar {
+  --background: var(--ion-toolbar-background) !important;
+  --border-color: transparent !important;
+  --color: var(--ion-toolbar-color, #333333) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Theme-aware toolbar that changes with dark/light mode */
+ion-toolbar.themed-toolbar {
+  --background: var(--ion-toolbar-background) !important;
+  --color: var(--ion-toolbar-color) !important;
+}
+
+ion-toolbar.themed-toolbar ion-back-button,
+ion-toolbar.themed-toolbar ion-button,
+ion-toolbar.themed-toolbar ion-icon {
+  --color: var(--ion-toolbar-color) !important;
+}
+
+/* REMOVE CONFLICTING TOOLBAR STYLES - Let theme handle this */
+/* 
+.app-toolbar {
+  --background: #ffffff !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05) !important;
+}
+
+.app-title {
+  color: #333333 !important;
+  font-weight: 700 !important;
+}
+
+ion-menu-button {
+  --color: #00809D !important;
+  font-size: 24px !important;
+  visibility: visible !important;
+}
+*/
+
+/* Fix for back buttons */
+ion-back-button {
+  --color: var(--ion-toolbar-color, #333333) !important;
+  --icon-font-size: 22px !important;
+  --icon-margin-end: 6px !important;
+  --icon-margin-start: 0 !important;
+  --padding-start: 8px !important;
+  visibility: visible !important;
+}
+
+/* Dark background needs white back button */
+.dark-background ion-back-button,
+ion-header.dark-background ion-back-button {
+  --color: white !important;
+  --background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Make sure all icons in the app are visible */
+*:not(ion-icon) > ion-icon,
+ion-buttons ion-icon,
+ion-button ion-icon,
+ion-item ion-icon {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* Title styling */
+ion-title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: inherit !important;
+}
+
+/* Adding professional touch to the entire app */
+ion-content {
+  --background: var(--ion-background-color, #f8f9fa) !important;
+  --padding-start: 0 !important;
+  --padding-end: 0 !important;
+}
+
+/* Card styling for product listings */
+ion-card {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  margin: 12px !important;
+  overflow: hidden !important;
+  background: var(--ion-card-background, #ffffff) !important;
+}
+
+ion-card-header {
+  padding: 16px !important;
+}
+
+ion-card-title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: var(--ion-text-color, #333333) !important;
+}
+
+ion-card-subtitle {
+  font-size: 14px !important;
+  color: #00809D !important;
+  font-weight: 500 !important;
+}
+
+ion-card-content {
+  padding: 0 16px 16px !important;
+}
+
+/* Button styling */
+ion-button {
+  --background: var(--ion-color-primary, #00809D) !important;
+  --background-activated: var(--ion-color-primary-shade, #00708a) !important;
+  --background-focused: var(--ion-color-primary-shade, #00708a) !important;
+  --color: var(--ion-color-primary-contrast, white) !important;
+  --border-radius: 8px !important;
+  --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+  font-weight: 600 !important;
+  text-transform: initial !important;
+  height: 44px !important;
+}
+
+ion-button.button-outline {
+  --border-color: var(--ion-color-primary, #00809D) !important;
+  --border-width: 1px !important;
+  --color: var(--ion-color-primary, #00809D) !important;
+  --background: transparent !important;
+  --background-activated: rgba(var(--ion-color-primary-rgb, 0, 128, 157), 0.1) !important;
+  --background-focused: rgba(var(--ion-color-primary-rgb, 0, 128, 157), 0.1) !important;
+}
+
+/* Fixing Item styling */
+ion-item {
+  --padding-start: 16px !important;
+  --padding-end: 16px !important;
+  --inner-padding-end: 0 !important;
+  --background: transparent !important;
+}
+
+/* List styling */
+ion-list {
+  background: transparent !important;
+  padding: 8px 0 !important;
+}
+
+/* Status Bar Fix */
+ion-header {
+  background: var(--ion-toolbar-background) !important;
+}
+
+/* Fix for general badge styling - but NOT cart badge */
+ion-badge:not(.cart-badge-circular) {
+  font-size: 12px !important;
+  padding: 4px 8px !important;
+  border-radius: 100px !important;
+  font-weight: 600 !important;
+}
+/* Professional navigation bar icons */
+.nav-icon {
+  font-size: 24px !important;
+  color: var(--ion-tab-bar-color) !important;
+  display: inline-block !important;
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  min-height: 24px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+ion-tab-button.tab-selected .nav-icon {
+  color: var(--ion-tab-bar-color) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+/* Clean ripple effect for tab buttons */
+ion-tab-button {
+  --ripple-color: rgba(var(--ion-color-primary-rgb), 0.12) !important;
+  /* Remove any border styles */
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* Focus styles for accessibility - without underlines */
+ion-tab-button:focus {
+  outline: none !important;
+  background-color: rgba(var(--ion-color-primary-rgb), 0.04) !important;
+  border-radius: 0 !important;
+}
+
+/* Remove any ::before and ::after pseudo elements */
+ion-tab-button::before,
+ion-tab-button::after,
+ion-tab-button:focus::before,
+ion-tab-button:focus::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Simple press animation */
+@keyframes tab-press {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+ion-tab-button:active {
+  animation: tab-press 0.2s ease-out !important;
+  background-color: rgba(var(--ion-color-primary-rgb), 0.08) !important;
+}
+
+/* Remove any animations from selected tab icons */
+ion-tab-button.tab-selected ion-icon {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* Enhanced animation for tab button press */
+@keyframes tab-press {
+  0% { transform: scale(1) translateY(0); }
+  50% { transform: scale(0.95) translateY(1px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+@keyframes tab-select {
+  0% { 
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  100% { 
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+}
+
+ion-tab-button:active {
+  animation: tab-press 0.2s ease-out !important;
+}
+
+ion-tab-button.tab-selected ion-icon {
+  animation: tab-select 0.3s ease-out !important;
+}
+
+/* Ripple effect for tab buttons */
+ion-tab-button {
+  --ripple-color: var(--ion-tab-bar-color-selected) !important;
+}
+
+/* Focus styles for accessibility */
+ion-tab-button:focus {
+  outline: 2px solid var(--ion-tab-bar-color-selected) !important;
+  outline-offset: 2px !important;
+}
+
+ion-tab-button:focus::before {
+  width: 30px !important;
+  opacity: 0.7 !important;
+}
+
+ion-tab-button.tab-selected .nav-icon {
+  color: var(--ion-tab-bar-color-selected) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Enhanced animation for tab button press */
+@keyframes tab-press {
+  0% { transform: scale(1) translateY(0); }
+  50% { transform: scale(0.95) translateY(1px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+@keyframes tab-select {
+  0% { 
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  100% { 
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+}
+
+ion-tab-button:active {
+  animation: tab-press 0.2s ease-out !important;
+}
+
+ion-tab-button.tab-selected ion-icon {
+  animation: tab-select 0.3s ease-out !important;
+}
+
+/* Ripple effect for tab buttons */
+ion-tab-button {
+  --ripple-color: var(--ion-tab-bar-color-selected) !important;
+}
+
+/* Focus styles for accessibility */
+ion-tab-button:focus {
+  outline: 2px solid var(--ion-tab-bar-color-selected) !important;
+  outline-offset: 2px !important;
+}
+
+ion-tab-button:focus::before {
+  width: 30px !important;
+  opacity: 0.7 !important;
+}

@@ -1,0 +1,49 @@
+/* Menu Smoothness Fix - Prevents flickering when opening/closing the menu */
+
+/* Ensure menu has proper transition */
+ion-menu {
+  --ion-item-background: var(--ion-background-color);
+  --width: 280px;
+  --max-width: 280px;
+  --min-width: 280px;
+}
+
+/* Add smooth animation to menu content */
+ion-menu ion-content {
+  --background: var(--ion-background-color);
+}
+
+/* Override the default menu transitions for smoother opening/closing */
+ion-menu.menu-content-open {
+  transition: all 300ms cubic-bezier(0.36, 0.66, 0.04, 1) !important;
+}
+
+/* Menu items should transition smoothly */
+ion-menu ion-list {
+  background: transparent !important;
+}
+
+ion-menu ion-item {
+  --background: transparent;
+  --background-hover: rgba(var(--ion-color-primary-rgb), 0.08);
+  --background-activated: rgba(var(--ion-color-primary-rgb), 0.12);
+  --min-height: 50px;
+  --padding-start: 16px;
+  --inner-padding-end: 16px;
+  --transition: background-color 200ms linear;
+}
+
+/* No flickering during transition */
+.menu-content-open .ion-page {
+  transform: translateX(0) !important;
+}
+
+/* Fix any opacity transitions that might cause flickering */
+ion-backdrop {
+  opacity: 0;
+  transition: opacity 300ms cubic-bezier(0.36, 0.66, 0.04, 1) !important;
+}
+
+ion-backdrop.backdrop-no-tappable {
+  opacity: 0.4 !important;
+}

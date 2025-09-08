@@ -1,0 +1,88 @@
+/* Global accessibility fixes */
+
+/* Fix for modal focus issues */
+ion-modal {
+  --ion-backdrop-opacity: 0.6;
+}
+
+/* Fix for button focus in modals */
+ion-modal button:focus {
+  z-index: 100000;
+}
+
+/* Override Ionic's use of aria-hidden with inert attribute */
+ion-modal.overlay-hidden:not(.overlay-will-present),
+ion-router-outlet[aria-hidden="true"],
+ion-tab[aria-hidden="true"] {
+  visibility: hidden;
+  /* Removed 'inert: true' as it's causing errors */
+}
+
+/* Add high contrast mode support */
+@media (forced-colors: active) {
+  :focus {
+    outline: 2px solid CanvasText !important;
+  }
+  
+  ion-button {
+    border: 1px solid CanvasText;
+  }
+  
+  ion-chip {
+    border: 1px solid CanvasText;
+  }
+}
+
+/* Global accessibility styles */
+
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--ion-color-primary);
+  outline-offset: 2px;
+  z-index: 9999;
+}
+
+/* Fix Ionic's broken focus styling */
+ion-item:focus-within {
+  --highlight-height: 2px;
+  --highlight-color-focused: var(--ion-color-primary);
+}
+
+/* Better contrast for disabled elements */
+[disabled] {
+  opacity: 0.6 !important;
+}
+
+/* Fix for Ionic's modal accessibility issues */
+ion-modal::part(content) {
+  pointer-events: auto;
+}
+
+/* Override any problematic aria-hidden behavior */
+[aria-hidden="true"] {
+  display: none !important;
+}
+
+/* Removed duplicate @media query for forced-colors */
+  button, a {
+    border: 1px solid ButtonText;
+  }
+
+@media (forced-colors: active) {
+  button, a {
+    border: 1px solid ButtonText;
+  }
+}

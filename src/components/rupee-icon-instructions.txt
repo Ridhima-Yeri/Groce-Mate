@@ -1,0 +1,12 @@
+// Instructions for using the component-based Rupee SVG icon:
+
+// 1. First, update the imports at the top of Home.tsx:
+import RupeeIcon from '../components/RupeeIcon';
+
+// 2. Then replace the IonIcon line with:
+// <div className="feature-icon">
+//   <RupeeIcon />
+// </div>
+
+// This creates a custom React component that renders an SVG directly.
+// Use this approach if you encounter any issues with the Ionic icon implementation.

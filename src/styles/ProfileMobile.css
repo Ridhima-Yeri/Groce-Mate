@@ -1,0 +1,50 @@
+/* Mobile optimizations for Profile page */
+
+/* Enhanced mobile styling */
+.profile-content {
+  padding-bottom: 16px;
+}
+
+/* Show the profile title in content area */
+.profile-page .profile-title {
+  display: block !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  color: var(--ion-text-color) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  text-align: left !important;
+}
+
+/* Enhanced profile header for mobile */
+.profile-header {
+  padding: 4rem 1rem 1rem !important;
+  margin: 0 auto 0.5rem !important;
+  width: 100% !important;
+  max-width: 800px !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  z-index: 10 !important;
+  margin-top: 1rem !important;
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+  .profile-page .profile-title {
+    font-size: 1.4rem !important;
+  }
+  
+  .profile-header {
+    padding: 1.5rem 0.75rem 1rem !important;
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .profile-page ion-toolbar {
+    border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+  }
+}

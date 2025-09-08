@@ -1,0 +1,151 @@
+/* Minimal icon fixes - main styling now in TabBarFix.css */
+
+/* Ensure ionicons work properly */
+.ionicon {
+  stroke: currentColor !important;
+  color: inherit !important;
+}
+
+.ionicon-fill-none {
+  fill: none !important;
+}
+
+.ionicon-stroke-width {
+  stroke-width: 32px !important;
+}
+
+/* Force visibility for hydrated icons */
+ion-icon.hydrated {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* Override any Ionic default hiding */
+ion-tab-button[aria-hidden="true"] ion-icon {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure SVG elements inherit color properly */
+svg.ionicon {
+  stroke: currentColor !important;
+  fill: none !important;
+}
+
+svg.ionicon * {
+  stroke: inherit !important;
+  fill: none !important;
+}
+
+/* Force all tab bar icons to be visible and follow theme colors */
+
+/* Base styles for all tab icons */
+ion-tab-button ion-icon,
+ion-tab-button .nav-icon {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+  font-size: 24px !important;
+  color: var(--ion-tab-bar-color) !important;
+  --ionicon-stroke-color: var(--ion-tab-bar-color) !important;
+}
+
+/* Selected tab icons - make them look identical to non-selected */
+ion-tab-button.tab-selected ion-icon,
+ion-tab-button.tab-selected .nav-icon,
+ion-tab-button[aria-selected="true"] ion-icon,
+ion-tab-button[aria-selected="true"] .nav-icon {
+  color: var(--ion-tab-bar-color) !important;
+  --ionicon-stroke-color: var(--ion-tab-bar-color) !important;
+  transform: none !important;
+}
+
+/* SVG styling to ensure proper stroke color inheritance */
+ion-tab-button ion-icon svg,
+ion-tab-button .nav-icon svg {
+  stroke: currentColor !important;
+  fill: none !important;
+  width: 24px !important;
+  height: 24px !important;
+}
+
+ion-tab-button ion-icon svg *,
+ion-tab-button .nav-icon svg * {
+  stroke: inherit !important;
+  fill: none !important;
+}
+
+/* Force visibility for hydrated icons */
+ion-icon.hydrated {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* Override any Ionic default hiding */
+ion-tab-button[aria-hidden="true"] ion-icon {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Override any hard-coded colors in SVG icons */
+  ion-tab-button ion-icon svg {
+    stroke: var(--ion-tab-bar-color, #999999) !important;
+    fill: none !important;
+  }
+  
+  ion-tab-button.tab-selected ion-icon svg {
+    stroke: var(--ion-tab-bar-color, #999999) !important; /* Same as non-selected */
+  }
+  
+  .nav-icon {
+    color: var(--ion-tab-bar-color, #999999) !important;
+    --ionicon-stroke-color: var(--ion-tab-bar-color, #999999) !important;
+  }
+  
+  .tab-selected .nav-icon {
+    color: var(--ion-tab-bar-color, #999999) !important; /* Same as non-selected */
+    --ionicon-stroke-color: var(--ion-tab-bar-color, #999999) !important;
+  }
+  
+  /* Additional SVG specific fixes */
+  ion-tab-button ion-icon::part(native) {
+    color: var(--ion-tab-bar-color, #999999) !important;
+  }
+  
+  ion-tab-button.tab-selected ion-icon::part(native) {
+    color: var(--ion-tab-bar-color, #999999) !important; /* Same as non-selected */
+  }
+}
+
+/* Fix for specific icons in light mode */
+@media (prefers-color-scheme: light) {
+  ion-tab-button ion-icon svg {
+    stroke: var(--ion-tab-bar-color, #666666) !important;
+    fill: none !important;
+  }
+  
+  ion-tab-button.tab-selected ion-icon svg {
+    stroke: var(--ion-tab-bar-color, #666666) !important; /* Same as non-selected */
+  }
+}
+
+  
+  ion-tab-button.tab-selected ion-icon::part(native) {
+    color: var(--ion-tab-bar-color-selected, #00809D) !important;
+  }
+
+
+/* Fix for specific icons in light mode */
+@media (prefers-color-scheme: light) {
+  ion-tab-button ion-icon svg {
+    stroke: var(--ion-tab-bar-color, #666666) !important;
+    fill: none !important;
+  }
+  
+  ion-tab-button.tab-selected ion-icon svg {
+    stroke: var(--ion-tab-bar-color-selected, #00809D) !important;
+  }
+}

@@ -1,0 +1,445 @@
+.profile-content {
+  --background: var(--ion-background-color);
+}
+
+.profile-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  overflow-x: hidden;
+  background: var(--ion-card-background);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Make back button more visible in profile page */
+.profile-page ion-back-button {
+  --color: white;
+  --icon-font-size: 24px;
+  font-weight: bold;
+}
+
+.profile-header {
+  text-align: center;
+  padding: 4rem 1rem 1rem !important;
+  margin: 0 auto 0.5rem !important;
+  width: 100% !important;
+  max-width: 800px !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  z-index: 10 !important;
+  margin-top: 1rem !important;
+}
+
+.profile-avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1rem 0 0.25rem;
+  color: var(--ion-text-color);
+}
+
+.profile-email {
+  font-size: 1rem;
+  color: var(--ion-color-medium);
+  margin: 0;
+}
+
+.profile-actions {
+  padding: 1rem;
+}
+
+.profile-avatar-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 0.5rem;
+  position: relative;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0px 30px rgba(255, 255, 255, 0.2);
+}
+
+.avatar-upload-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--ion-primary);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  opacity: 0.9;
+}
+
+.avatar-upload-overlay ion-icon {
+  font-size: 18px;
+  color: #000;
+}
+
+.profile-avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ion-primary);
+  border-radius: 50%;
+  /* Add glow effect container styling */
+  position: relative;
+  overflow: visible;
+}
+
+.profile-avatar-placeholder ion-icon {
+  font-size: 64px;
+  color: var(--ion-text-color);
+  /* Add black glow in light theme */
+  filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.5)) !important;
+  /* Make sure icon is properly visible */
+  visibility: visible !important;
+  opacity: 1 !important;
+  stroke: currentColor !important;
+}
+
+.profile-avatar-placeholder ion-icon svg path {
+  stroke: currentColor !important;
+  stroke-width: 32px !important;
+}
+
+/* Dark theme specific styles */
+@media (prefers-color-scheme: light) {
+  .profile-avatar{
+    /* Use white glow in dark theme */
+    box-shadow: 0 0px 30px rgba(0, 0, 0, 0.2) !important;
+  }
+}
+
+.avatar-change-btn {
+  margin-top: 0.5rem;
+  --border-radius: 20px;
+  --color: var(--ion-color-light);
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--ion-text-color);
+  margin: 0.5rem 0 0;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 4px 16px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.name-text {
+  position: relative;
+  z-index: 2;
+}
+
+.profile-name.admin-role {
+  background-color: rgba(var(--ion-color-primary-rgb), 0.15);
+  color: var(--ion-color-primary-shade);
+  box-shadow: 0 2px 6px rgba(var(--ion-color-primary-rgb), 0.2);
+}
+
+.profile-name.user-role {
+  background-color: rgba(var(--ion-color-medium-rgb), 0.1);
+  color: var(--ion-color-medium-shade);
+}
+
+.admin-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ion-color-primary);
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-badge ion-icon {
+  font-size: 1.2rem;
+}
+
+.profile-email {
+  font-size: 1rem;
+  color: var(--ion-color-step-600);
+  margin: 0.75rem 0 0;
+  text-align: center;
+}
+
+.profile-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--ion-card-background);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.profile-card {
+  margin-bottom: 1.5rem;
+}
+
+.profile-card ion-card-header {
+  padding-bottom: 0.5rem;
+}
+
+.profile-card ion-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.profile-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: var(--ion-color-step-600);
+}
+
+.profile-card p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ion-text-color);
+}
+
+.edit-profile-form,
+.change-password-form {
+  padding: 1rem 0;
+}
+
+.profile-avatar-upload {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.avatar-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 1rem 0;
+  border: 3px solid var(--ion-primary);
+  position: relative;
+  cursor: pointer;
+}
+
+.avatar-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-upload-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.avatar-preview:hover .avatar-upload-icon {
+  opacity: 1;
+}
+
+.avatar-upload-icon ion-icon {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ion-color-step-100);
+}
+
+.avatar-placeholder ion-icon {
+  font-size: 40px;
+  color: var(--ion-color-step-600);
+}
+
+.upload-btn {
+  margin-top: 1rem;
+  width: 80%;
+}
+
+.profile-loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.2rem;
+  color: var(--ion-color-step-600);
+  gap: 1rem;
+}
+
+.offline-badge {
+  display: inline-block;
+  background-color: #ff9800;
+  color: #000;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  margin-left: 0.5rem;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.offline-chip {
+  margin-left: 0.5rem;
+  font-size: 0.7rem;
+}
+
+.offline-note {
+  color: var(--ion-color-warning);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Form field highlight for changes */
+.changed-input {
+  --background: rgba(var(--ion-color-primary-rgb), 0.08);
+  --color: var(--ion-color-primary);
+  border-left: 3px solid var(--ion-color-primary);
+}
+
+/* Adjust form item styling for our custom modal */
+.edit-profile-form ion-item,
+.change-password-form ion-item {
+  --padding-start: 0;
+  margin-bottom: 16px;
+}
+
+.form-status {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Footer button styles */
+ion-footer ion-toolbar {
+  padding: 0 8px;
+}
+
+@media (max-width: 576px) {
+  .profile-actions {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .profile-name {
+    font-size: 1.4rem;
+    padding: 3px 12px;
+    border-radius: 16px;
+  }
+  
+  .admin-badge {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .admin-badge ion-icon {
+    font-size: 1rem;
+  }
+  
+  .profile-header {
+    padding: 1rem;
+  }
+  
+  .offline-chip {
+    margin-left: 0;
+    margin-top: 0.3rem;
+    display: block;
+  }
+  
+  .admin-badge ion-icon {
+    font-size: 1rem;
+  }
+}
+
+/* Add profile header styling similar to other pages */
+.profile-header {
+  padding: 4rem 1rem 1rem !important;
+  margin: 0 auto 0.5rem !important;
+  width: 100% !important;
+  max-width: 800px !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  z-index: 10 !important;
+  margin-top: 1rem !important;
+}
+
+/* Show the profile title in content area */
+.profile-page .profile-title {
+  display: block !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  color: var(--ion-text-color) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  text-align: left !important;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 600px) {
+  .profile-header {
+    padding: 1.5rem 1rem 1rem !important;
+    margin-top: 0.5rem !important;
+  }
+  
+  .profile-page .profile-title {
+    font-size: 1.4rem !important;
+  }
+}

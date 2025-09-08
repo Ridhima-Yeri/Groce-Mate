@@ -1,0 +1,259 @@
+/* Dark mode and light mode theme support */
+
+/* Light theme (default) */
+:root {
+  --ion-color-primary: #00809D;
+  --ion-color-primary-rgb: 0, 128, 157;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #00708a;
+  --ion-color-primary-tint: #1a8fa7;
+
+  --ion-text-color: #333333;
+  --ion-text-color-rgb: 51, 51, 51;
+  --ion-background-color: #f8f9fa;
+  --ion-background-color-rgb: 248, 249, 250;
+
+  /* Light Theme Toolbar Colors - ENHANCED */
+  --ion-toolbar-background: #ffffff;
+  --ion-toolbar-color: #333333;
+  --ion-toolbar-border-color: rgba(0, 0, 0, 0.08);
+  --ion-toolbar-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  
+  /* Feature Cards Light Theme */
+  --feature-card-bg: #ffffff;
+  --feature-card-border: rgba(0, 0, 0, 0.05);
+  --feature-card-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  --feature-card-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.15);
+  --feature-icon-bg: rgba(0, 128, 157, 0.1);
+  --feature-icon-shadow: 0 4px 10px rgba(0, 128, 157, 0.15);
+  
+  /* Features Section Light Theme */
+  --features-section-bg: #f8f9fa;
+  --features-section-border: rgba(0, 0, 0, 0.05);
+  
+  --ion-tab-bar-background: #ffffff;
+  --ion-tab-bar-color: #666666;
+  --ion-tab-bar-color-selected: #00809D;
+
+  --ion-card-background: #ffffff;
+  --ion-item-background: #ffffff;
+}
+
+/* Dark theme overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ion-color-primary: #00809D;
+    --ion-color-primary-rgb: 0, 128, 157;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-shade: #00708a;
+    --ion-color-primary-tint: #1a8fa7;
+
+    --ion-text-color: #f4f5f8;
+    --ion-text-color-rgb: 244, 245, 248;
+    --ion-background-color: #121212;
+    --ion-background-color-rgb: 18, 18, 18;
+
+    /* Dark Theme Toolbar Colors - ENHANCED */
+    --ion-toolbar-background: #1f1f1f;
+    --ion-toolbar-color: #ffffff;
+    --ion-toolbar-border-color: rgba(255, 255, 255, 0.1);
+    --ion-toolbar-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    
+    /* Feature Cards Dark Theme */
+    --feature-card-bg: #1f1f1f;
+    --feature-card-border: rgba(255, 255, 255, 0.05);
+    --feature-card-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    --feature-card-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.4);
+    --feature-icon-bg: rgba(0, 128, 157, 0.2);
+    --feature-icon-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    
+    /* Features Section Dark Theme */
+    --features-section-bg: #141414;
+    --features-section-border: rgba(255, 255, 255, 0.03);
+    
+    --ion-tab-bar-background: #1f1f1f;
+    --ion-tab-bar-color: #999999;
+    --ion-tab-bar-color-selected: #00809D;
+
+    --ion-card-background: #2a2a2a;
+    --ion-item-background: #2a2a2a;
+  }
+
+  /* Force all toolbars to use dark theme colors */
+  ion-toolbar,
+  .app-toolbar {
+    --background: var(--ion-toolbar-background) !important;
+    --color: var(--ion-toolbar-color) !important;
+    background: var(--ion-toolbar-background) !important;
+    color: var(--ion-toolbar-color) !important;
+    border-bottom-color: var(--ion-toolbar-border-color) !important;
+    box-shadow: var(--ion-toolbar-box-shadow) !important;
+  }
+
+  ion-title,
+  .app-title {
+    color: var(--ion-toolbar-color) !important;
+  }
+
+  ion-menu-button {
+    --color: var(--ion-toolbar-color) !important;
+  }
+
+  ion-content {
+    --background: var(--ion-background-color) !important;
+  }
+
+  ion-card {
+    background: var(--ion-card-background) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  ion-card-title {
+    color: var(--ion-text-color) !important;
+  }
+
+  ion-item {
+    --background: var(--ion-item-background) !important;
+    --color: var(--ion-text-color) !important;
+  }
+
+  ion-header {
+    background: var(--ion-toolbar-background) !important;
+  }
+
+  h1, h2, h3, p, span, div:not(.cart-badge):not(.order-status) {
+    color: var(--ion-text-color) !important;
+  }
+
+  ion-icon:not(ion-tab-button ion-icon) {
+    color: var(--ion-text-color) !important;
+  }
+
+  ion-button:not(.button-outline) {
+    --background: var(--ion-color-primary) !important;
+    --color: var(--ion-color-primary-contrast) !important;
+  }
+
+  ion-button.button-outline {
+    --border-color: var(--ion-color-primary) !important;
+    --color: var(--ion-color-primary) !important;
+  }
+
+  input, select, textarea {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--ion-text-color) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  ion-input, ion-textarea, ion-select {
+    --background: rgba(255, 255, 255, 0.1) !important;
+    --color: var(--ion-text-color) !important;
+    --placeholder-color: rgba(255, 255, 255, 0.5) !important;
+  }
+}
+
+/* Force light theme colors when not in dark mode */
+@media (prefers-color-scheme: light) {
+  ion-toolbar,
+  .app-toolbar {
+    --background: var(--ion-toolbar-background) !important;
+    --color: var(--ion-toolbar-color) !important;
+    background: var(--ion-toolbar-background) !important;
+    color: var(--ion-toolbar-color) !important;
+    border-bottom-color: var(--ion-toolbar-border-color) !important;
+    box-shadow: var(--ion-toolbar-box-shadow) !important;
+  }
+
+  ion-title,
+  .app-title {
+    color: var(--ion-toolbar-color) !important;
+  }
+
+  ion-menu-button {
+    --color: var(--ion-toolbar-color) !important;
+  }
+}
+
+/* System preference mode transition */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, stroke 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.features-section {
+  transition: background-color 0.5s ease, border-color 0.5s ease !important;
+}
+
+/* Force tab bar colors in both themes */
+:root {
+  --ion-tab-bar-color-force: var(--ion-tab-bar-color) !important;
+  --ion-tab-bar-color-selected-force: var(--ion-tab-bar-color) !important; /* Same as non-selected */
+}
+
+/* Features Section Theme Support */
+.features-section {
+  background-color: var(--features-section-bg) !important;
+}
+
+/* Section Title Theme Support */
+.section-title {
+  color: var(--ion-text-color) !important;
+}
+
+.section-title::after {
+  background-color: var(--ion-color-primary) !important;
+}
+
+/* Dark mode specific adjustments for section titles */
+@media (prefers-color-scheme: dark) {
+  .section-title {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .features-section .section-title::after {
+    opacity: 0.9;
+  }
+}
+
+/* Feature Card Theme Support */
+.feature-card {
+  background-color: var(--feature-card-bg) !important;
+  border: 1px solid var(--feature-card-border) !important;
+  box-shadow: var(--feature-card-shadow) !important;
+}
+
+.feature-card:hover,
+.feature-card:focus {
+  box-shadow: var(--feature-card-shadow-hover) !important;
+}
+
+.feature-icon {
+  background-color: var(--feature-icon-bg) !important;
+  box-shadow: var(--feature-icon-shadow) !important;
+}
+
+/* Custom rupee icon styling */
+ion-icon[src*="rupee"] {
+  --ionicon-stroke-width: 32px;
+  stroke: var(--ion-color-primary) !important;
+  color: var(--ion-color-primary) !important;
+  font-size: 3.2rem !important;
+}
+
+/* Enhance contrast in dark mode for feature card text */
+@media (prefers-color-scheme: dark) {
+  .feature-card p {
+    opacity: 0.9;
+  }
+  
+  .feature-card h3::after {
+    opacity: 0.9;
+  }
+  
+  /* Add subtle focus outline in dark mode for accessibility */
+  .feature-card:focus {
+    outline: 2px solid var(--ion-color-primary);
+    outline-offset: 2px;
+  }
+}

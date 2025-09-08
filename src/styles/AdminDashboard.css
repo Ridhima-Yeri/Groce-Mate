@@ -1,0 +1,833 @@
+/* Admin Dashboard Styles */
+.admin-page {
+  --background: var(--ion-background-color);
+  overflow-x: hidden;
+}
+
+.admin-dashboard-content {
+  --background: var(--ion-background-color);
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.admin-dashboard-full {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.admin-dashboard-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ion-text-color);
+}
+
+/* Tab Navigation */
+.admin-dashboard-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  background: var(--ion-card-background);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-dashboard-tabs ion-button {
+  margin: 0;
+  --border-radius: 8px;
+  height: 48px;
+  font-weight: 600;
+}
+
+/* Forms */
+.admin-form {
+  background: var(--ion-card-background);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.simple-admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.simple-admin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.simple-admin-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ion-text-color);
+}
+
+.simple-admin-label.required::after {
+  content: ' *';
+  color: var(--ion-color-danger);
+}
+
+.simple-admin-input,
+.simple-admin-select {
+  padding: 0.75rem;
+  border: 2px solid var(--ion-color-light);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: var(--ion-background-color);
+  color: var(--ion-text-color);
+  transition: border-color 0.2s ease;
+}
+
+.simple-admin-input:focus,
+.simple-admin-select:focus {
+  outline: none;
+  border-color: var(--ion-color-primary);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.simple-admin-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+}
+
+.simple-admin-btn:hover {
+  background: var(--ion-color-primary-shade);
+}
+
+.simple-admin-btn.outline {
+  background: transparent;
+  border: 2px solid var(--ion-color-medium);
+  color: var(--ion-color-medium);
+}
+
+.simple-admin-btn.outline:hover {
+  background: var(--ion-color-light);
+}
+
+/* Tables */
+.admin-table {
+  background: var(--ion-card-background);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.admin-table th {
+  background: var(--ion-color-light);
+  color: var(--ion-text-color);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--ion-color-light-shade);
+}
+
+.admin-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--ion-color-light);
+  color: var(--ion-text-color);
+  text-align: left;
+  vertical-align: middle;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.admin-table tr:hover {
+  background: var(--ion-color-light);
+}
+
+/* Specific column alignments */
+.admin-table td:nth-child(3), /* Price column in products */
+.admin-table td:nth-child(4), /* Total column in orders */
+.admin-table th:nth-child(3), /* Price header */
+.admin-table th:nth-child(4) { /* Total header */
+  text-align: right;
+}
+
+.admin-table td:last-child,
+.admin-table th:last-child {
+  text-align: center;
+}
+
+.table-action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.simple-table-btn {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.simple-table-btn.edit {
+  background: var(--ion-color-warning);
+  color: var(--ion-color-warning-contrast);
+}
+
+.simple-table-btn.danger {
+  background: var(--ion-color-danger);
+  color: var(--ion-color-danger-contrast);
+}
+
+.simple-table-btn.view-icon {
+  background: var(--ion-color-tertiary);
+  color: var(--ion-color-tertiary-contrast);
+}
+
+/* Order Management */
+.order-number-link {
+  color: var(--ion-color-primary);
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-pending {
+  background: var(--ion-color-warning);
+  color: var(--ion-color-warning-contrast);
+}
+
+.status-processing {
+  background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+}
+
+.status-shipped {
+  background: var(--ion-color-secondary);
+  color: var(--ion-color-secondary-contrast);
+}
+
+.status-delivered {
+  background: var(--ion-color-success);
+  color: var(--ion-color-success-contrast);
+}
+
+.status-cancelled {
+  background: var(--ion-color-danger);
+  color: var(--ion-color-danger-contrast);
+}
+
+/* Featured Product Description */
+.featured-description {
+  font-size: 0.8rem;
+  color: var(--ion-color-medium);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Modal Styles */
+.order-items-modal {
+  --width: 90%;
+  --max-width: 800px;
+  --height: 80%;
+}
+
+.order-details-container {
+  padding: 1rem;
+}
+
+.order-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--ion-color-light);
+}
+
+.order-header h2 {
+  margin: 0 0 0.5rem 0;
+  color: var(--ion-text-color);
+}
+
+.order-date,
+.order-customer,
+.order-total {
+  margin: 0.5rem 0;
+  color: var(--ion-color-medium);
+}
+
+.order-items {
+  margin: 2rem 0;
+}
+
+.order-items h3 {
+  margin-bottom: 1rem;
+  color: var(--ion-text-color);
+}
+
+.header-row {
+  font-weight: 600;
+  background: var(--ion-color-light);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.item-row {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--ion-color-light);
+}
+
+.product-thumbnail {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.no-image {
+  width: 40px;
+  height: 40px;
+  background: var(--ion-color-light);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--ion-color-medium);
+}
+
+.order-actions {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ion-color-light);
+}
+
+.status-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.status-button {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--ion-color-light);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--ion-text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.status-button:hover {
+  background: var(--ion-color-light);
+}
+
+.status-button.active {
+  background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+  border-color: var(--ion-color-primary);
+}
+
+/* Close button for modal */
+.x-close-button::before {
+  content: '×';
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Order card specific styling */
+.admin-table tr.order-card {
+  display: grid;
+  grid-template-rows: auto auto auto auto auto;
+  gap: 0.5rem;
+}
+
+.admin-table td[data-label="Order"] .cell-content,
+.admin-table td[data-label="Customer"] .cell-content,
+.admin-table td[data-label="Date"] .cell-content,
+.admin-table td[data-label="Total"] .cell-content,
+.admin-table td[data-label="Status"] .cell-content {
+  text-align: right;
+  margin-left: auto;
+}
+
+.admin-table td[data-label="Order"],
+.admin-table td[data-label="Customer"],
+.admin-table td[data-label="Date"],
+.admin-table td[data-label="Total"],
+.admin-table td[data-label="Status"] {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  margin-bottom: 0.25rem;
+}
+
+/* Fix order status badge */
+.status-badge {
+  display: inline-block;
+  margin-left: auto;
+  text-align: center;
+  min-width: 80px;
+}
+
+/* Fix order actions */
+.admin-table td.order-actions {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--ion-color-light);
+}
+
+/* Fix for specific mobile layouts */
+@media (max-width: 768px) {
+  .admin-table tr {
+    padding: 1rem;
+  }
+
+  .admin-table td[data-label="Order"],
+  .admin-table td[data-label="Customer"],
+  .admin-table td[data-label="Date"],
+  .admin-table td[data-label="Total"],
+  .admin-table td[data-label="Status"] {
+    align-items: center;
+    padding: 0.5rem 0;
+    margin-bottom: 0.25rem;
+    border-bottom: 1px solid var(--ion-color-light-shade);
+  }
+  
+  .admin-table td[data-label="Status"] {
+    border-bottom: none;
+  }
+  
+  .admin-table td:before {
+    color: var(--ion-color-medium);
+    font-size: 0.85rem;
+    font-weight: 600;
+    min-width: 90px;
+    margin-right: 0.5rem;
+  }
+  
+  .admin-table td .cell-content {
+    flex: 1;
+    text-align: right;
+    font-weight: 500;
+  }
+  
+  /* Ensure actions are properly spaced */
+  .table-action-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+  }
+  
+  /* Better styling for action buttons */
+  .simple-table-btn {
+    margin-left: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-table tr {
+    padding: 0.75rem;
+  }
+  
+  .admin-table td:before {
+    min-width: 80px;
+    font-size: 0.8rem;
+  }
+  
+  /* Status badge adjustments for very small screens */
+  .status-badge {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+    min-width: 70px;
+  }
+  
+  /* Action buttons for very small screens */
+  .simple-table-btn {
+    min-width: 32px;
+    height: 32px;
+    padding: 0.3rem;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .admin-dashboard-tabs,
+  .admin-form,
+  .admin-table {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .admin-table th {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .admin-table tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .simple-admin-input,
+  .simple-admin-select {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .admin-dashboard-tabs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .admin-dashboard-full {
+    padding: 0.5rem;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+  
+  .admin-form {
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  /* Mobile Table - Card Layout */
+  .admin-table {
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .admin-table table {
+    display: block;
+    min-width: auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .admin-table thead {
+    display: none;
+  }
+  
+  .admin-table tbody {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .admin-table tr {
+    display: block;
+    background: var(--ion-card-background);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--ion-color-light);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+  
+  .admin-table tr:hover {
+    background: var(--ion-card-background);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .admin-table td {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0.6rem 0;
+    border: none;
+    min-height: 40px;
+    line-height: 1.4;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    flex-wrap: wrap;
+  }
+  
+  .admin-table td:before {
+    content: attr(data-label) ": ";
+    font-weight: 600;
+    color: var(--ion-color-medium);
+    font-size: 0.85rem;
+    min-width: 90px;
+    max-width: 90px;
+    flex-shrink: 0;
+    margin-right: 0.75rem;
+    text-align: left;
+    display: inline-block;
+    align-self: flex-start;
+    padding-top: 2px;
+  }
+  
+  .admin-table td:last-child {
+    border-top: 1px solid var(--ion-color-light);
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    justify-content: flex-start;
+    text-align: left;
+    min-height: 50px;
+  }
+  
+  .admin-table td:last-child:before {
+    content: "Actions: ";
+    text-align: left;
+  }
+  
+  /* Content wrapper for better text control */
+  .admin-table td .cell-content {
+    flex: 1;
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    line-height: 1.4;
+    display: block;
+    width: 100%;
+    max-width: calc(100% - 100px); /* Increased space for label */
+  }
+  
+  /* Email and Name fields specific fixes */
+  .admin-table td[data-label="Email"] .cell-content,
+  .admin-table td[data-label="Name"] .cell-content {
+    display: block;
+    width: calc(100% - 100px);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all; /* Force breaks for email addresses */
+    padding-right: 5px;
+  }
+  
+  /* Ensure tables have proper spacing */
+  .admin-table td {
+    padding: 0.6rem 0;
+    gap: 5px;
+  }
+  
+  .admin-table td:before {
+    min-width: 90px;
+    max-width: 90px;
+    margin-right: 10px; /* Increased spacing */
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-dashboard-full {
+    padding: 0.25rem;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  .admin-dashboard-tabs {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .admin-table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .admin-table tr {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .admin-table td {
+    padding: 0.5rem 0;
+    font-size: 0.85rem;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    text-align: left;
+    justify-content: flex-start;
+    min-height: 35px;
+    line-height: 1.4;
+  }
+  
+  .admin-table td:before {
+    min-width: 80px;
+    max-width: 80px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+  }
+}
+
+/* Hide scrollbars globally for admin dashboard */
+.admin-dashboard-content::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.admin-dashboard-full::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Ensure no horizontal overflow */
+.admin-dashboard-content,
+.admin-dashboard-full,
+.admin-table,
+.admin-table table,
+.admin-table tbody,
+.admin-table tr,
+.admin-table td {
+  overflow-x: hidden !important;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+  
+  .order-items-modal {
+    --width: 95%;
+    --height: 90%;
+  }
+  
+  .order-details-container {
+    padding: 0.75rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  
+  .product-thumbnail,
+  .no-image {
+    width: 30px;
+    height: 30px;
+  }
+
+
+@media (max-width: 480px) {
+  .admin-dashboard-full {
+    padding: 0.25rem;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  .admin-dashboard-tabs {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .admin-table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .admin-table tr {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .admin-table td {
+    padding: 0.5rem 0;
+    font-size: 0.85rem;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    text-align: left;
+    justify-content: flex-start;
+    min-height: 35px;
+    line-height: 1.4;
+  }
+  
+  .admin-table td:before {
+    min-width: 80px;
+    max-width: 80px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+  }
+}
+
+/* Hide scrollbars globally for admin dashboard */
+.admin-dashboard-content::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.admin-dashboard-full::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Ensure no horizontal overflow */
+.admin-dashboard-content,
+.admin-dashboard-full,
+.admin-table,
+.admin-table table,
+.admin-table tbody,
+.admin-table tr,
+.admin-table td {
+  overflow-x: hidden !important;
+  max-width: 100%;
+  box-sizing: border-box;
+}

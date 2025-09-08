@@ -1,0 +1,105 @@
+/* App.css - Main application styles */
+
+.app-toolbar {
+  --background: var(--ion-toolbar-background);
+  --color: var(--ion-toolbar-color);
+}
+
+.app-title {
+  color: var(--ion-toolbar-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Tab bar styling */
+.tab-bar-custom {
+  --background: var(--ion-tab-bar-background);
+  --color: var(--ion-tab-bar-color);
+  --color-selected: var(--ion-tab-bar-color-selected);
+  border-top: 1px solid var(--ion-tab-bar-border-color);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tab-button-custom {
+  --color: var(--ion-tab-bar-color);
+  --color-selected: var(--ion-tab-bar-color-selected);
+  --background-focused: transparent;
+  --background-focused-opacity: 0.12;
+}
+
+.nav-icon {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+.cart-badge-circular {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--ion-color-danger);
+  color: var(--ion-color-danger-contrast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* Menu button styling */
+.smooth-menu-button {
+  --color: var(--ion-toolbar-color);
+  --background: transparent;
+  --background-activated: rgba(var(--ion-color-primary-rgb), 0.1);
+  --border-radius: 8px;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  transition: all 0.2s ease;
+}
+
+.smooth-menu-button:hover {
+  --background: rgba(var(--ion-color-primary-rgb), 0.05);
+}
+
+/* Main content area */
+.ion-page {
+  background: var(--ion-background-color);
+}
+
+/* Focus management for accessibility */
+[inert] * {
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Ensure menu items are properly focusable */
+ion-item[button]:focus {
+  outline: 2px solid var(--ion-color-primary);
+  outline-offset: -2px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 1.1rem;
+  }
+  
+  .cart-badge-circular {
+    min-width: 16px;
+    height: 16px;
+    font-size: 0.6rem;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .tab-bar-custom {
+    border-top-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+  }
+}

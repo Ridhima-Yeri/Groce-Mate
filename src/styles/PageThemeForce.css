@@ -1,0 +1,30 @@
+/* Force background colors to follow theme settings */
+.ion-page-force-theme {
+  /* Use CSS variables from theme */
+  background: var(--ion-background-color) !important;
+  color: var(--ion-text-color) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .ion-page-force-theme ion-content,
+  .ion-page-force-theme ion-content::part(background),
+  .ion-page-force-theme ion-content::part(scroll),
+  .ion-page-force-theme .scroll-y,
+  .ion-page-force-theme .inner-scroll {
+    --background: var(--ion-background-color) !important;
+    background: var(--ion-background-color) !important;
+    color: var(--ion-text-color) !important;
+  }
+  
+  .ion-page-force-theme ion-tabs ion-tab-bar {
+    --background: var(--ion-tab-bar-background) !important;
+    background: var(--ion-tab-bar-background) !important;
+  }
+  
+  /* Force all cards to use theme colors */
+  .ion-page-force-theme ion-card {
+    --background: var(--ion-card-background) !important;
+    background: var(--ion-card-background) !important;
+    color: var(--ion-text-color) !important;
+  }
+}

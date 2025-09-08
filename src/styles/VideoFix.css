@@ -1,0 +1,56 @@
+/* Video-specific fixes for various platforms */
+
+/* Fix iOS video playback */
+.home-video {
+  object-fit: cover !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+  transform: translateZ(0) !important;
+  -webkit-transform: translateZ(0) !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+}
+
+/* Remove default video controls */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+/* Ensure overlay is working properly */
+.home-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  background: var(--video-overlay-color, rgba(0, 0, 0, 0.5)) !important;
+  z-index: 1 !important;
+}
+
+/* Fix for Android Chrome playback issues */
+video {
+  will-change: transform;
+}
+
+/* Fallback for browsers that don't support video */
+.no-video-support .home-bg {
+  background: linear-gradient(135deg, #00809D 0%, #005f73 100%) !important;
+}
+
+/* Prevent video from causing performance issues */
+@media (prefers-reduced-motion: reduce) {
+  .home-video {
+    display: none !important;
+  }
+  
+  .home-bg {
+    background: linear-gradient(135deg, #00809D 0%, #005f73 100%) !important;
+  }
+}

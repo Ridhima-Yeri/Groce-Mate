@@ -1,0 +1,269 @@
+/* Admin Dashboard Mobile Styles */
+
+@media (max-width: 768px) {
+  .admin-dashboard-tabs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+    padding: 0.75rem;
+  }
+  
+  .admin-dashboard-tabs ion-button {
+    height: 40px;
+    font-size: 0.85rem;
+  }
+  
+  .admin-form {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .simple-admin-form {
+    gap: 0.75rem;
+  }
+  
+  .simple-admin-input,
+  .simple-admin-select {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .simple-admin-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Mobile Table Styles - Card Layout */
+  .admin-table {
+    overflow: visible;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+  
+  .admin-table table {
+    display: block;
+    width: 100%;
+    background: transparent;
+  }
+  
+  .admin-table thead {
+    display: none;
+  }
+  
+  .admin-table tbody {
+    display: block;
+    background: transparent;
+  }
+  
+  .admin-table tr {
+    display: block;
+    background: var(--ion-card-background);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(var(--ion-color-light-rgb), 0.15);
+    transition: all 0.2s ease;
+  }
+  
+  .admin-table tr:hover {
+    background: var(--ion-card-background);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  }
+  
+  .admin-table td {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border: none;
+    border-bottom: 1px solid rgba(var(--ion-color-light-rgb), 0.12);
+    gap: 0.5rem;
+    background: transparent;
+  }
+  
+  .admin-table td:last-child {
+    border-bottom: none;
+  }
+  
+  .admin-table td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--ion-color-medium);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex: 0 0 auto;
+    min-width: 120px;
+  }
+  
+  .admin-table td .cell-content {
+    flex: 1;
+    text-align: right;
+    font-weight: 500;
+    color: var(--ion-text-color);
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  /* Special handling for action buttons */
+  .admin-table td.actions-cell {
+    padding-top: 1.25rem;
+    margin-top: 0.75rem;
+    border-top: 1px solid var(--ion-color-light);
+    border-bottom: none;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .admin-table td.actions-cell:before {
+    margin-bottom: 0.75rem;
+    min-width: 100%;
+  }
+  
+  .table-action-buttons {
+    gap: 0.5rem;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  
+  /* Special styling for different data types */
+  .admin-table td img {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 6px;
+    margin-left: auto;
+  }
+  
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    text-align: center;
+    min-width: 80px;
+  }
+  
+  .order-number-link {
+    font-weight: 600;
+    color: var(--ion-color-primary);
+    margin-left: auto;
+  }
+  
+  .order-items-modal {
+    --width: 98%;
+    --height: 95%;
+  }
+  
+  .order-details-container {
+    padding: 0.75rem;
+  }
+  
+  .order-header {
+    margin-bottom: 1rem;
+  }
+  
+  .order-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .status-buttons {
+    gap: 0.25rem;
+  }
+  
+  .status-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .product-thumbnail,
+  .no-image {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-dashboard-tabs {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem;
+    padding: 0.5rem;
+  }
+  
+  .admin-dashboard-tabs ion-button {
+    height: 36px;
+    font-size: 0.8rem;
+  }
+  
+  .admin-dashboard-full {
+    padding: 0.25rem;
+  }
+  
+  .admin-form {
+    padding: 0.75rem;
+  }
+  
+  /* Extra small screen adjustments */
+  .admin-table tr {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    background: var(--ion-card-background);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(var(--ion-color-light-rgb), 0.1);
+  }
+  
+  .admin-table td {
+    padding: 0.6rem 0;
+    gap: 0.5rem;
+    background: transparent;
+    border-bottom-color: rgba(var(--ion-color-light-rgb), 0.1);
+  }
+  
+  .admin-table td:before {
+    font-size: 0.75rem;
+    min-width: 100px;
+  }
+  
+  .admin-table td .cell-content {
+    font-size: 0.85rem;
+  }
+  
+  .admin-table td.actions-cell {
+    padding-top: 1rem;
+    margin-top: 0.6rem;
+  }
+  
+  .admin-table td.actions-cell:before {
+    margin-bottom: 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .simple-table-btn {
+    padding: 0.4rem;
+    min-width: 36px;
+    height: 36px;
+  }
+  
+  .status-button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  
+  .status-badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+  }
+}
+

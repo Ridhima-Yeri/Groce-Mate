@@ -1,0 +1,409 @@
+.products-content {
+  padding-bottom: 160px; /* Significantly increased padding for tab bar */
+}
+
+/* Remove custom title styling - use Ionic's IonTitle instead */
+.products-page ion-title {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: var(--ion-text-color) !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  text-align: center !important;
+}
+
+/* Show the products title in content area above search bar */
+.products-page .products-title {
+  display: block !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  color: var(--ion-text-color) !important;
+  margin: 0 0 1rem 0 !important;
+  padding: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  text-align: left !important;
+}
+
+/* Enhanced search input for mobile */
+.products-header {
+  padding: 4rem 1rem 0.5rem !important;
+  margin: 0 auto 0.5rem !important;
+  width: 100% !important;
+  max-width: 600px !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  z-index: 10 !important;
+  margin-top: 1rem !important;
+}
+
+.products-header input {
+  width: 100% !important;
+  padding: 0.7rem 1rem !important;
+  font-size: 1rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
+  background: var(--ion-card-background) !important;
+  margin: 0 !important;
+  color: var(--ion-text-color) !important;
+}
+
+.products-header input::placeholder {
+  color: var(--ion-color-medium) !important;
+  opacity: 0.7 !important;
+}
+
+.products-header input:focus {
+  outline: none !important;
+  border-color: var(--ion-color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(var(--ion-color-primary-rgb), 0.1) !important;
+}
+
+/* Mobile Categories Button */
+.categories-button {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  background: var(--ion-card-background) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 10px !important;
+  padding: 0.6rem 0.85rem !important;
+  font-size: 0.9rem !important;
+  color: var(--ion-text-color) !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  width: 100% !important;
+  margin-top: 0.75rem !important;
+  font-family: inherit !important;
+  font-weight: 500 !important;
+}
+
+.categories-button ion-icon {
+  font-size: 1rem !important;
+  color: var(--ion-color-primary) !important;
+}
+
+.selected-category {
+  margin-left: auto !important;
+  font-size: 0.8rem !important;
+  color: var(--ion-color-medium) !important;
+  font-weight: 400 !important;
+}
+
+/* Fix content positioning */
+.products-content {
+  padding-top: 0 !important;
+  --padding-top: 0 !important;
+  padding-bottom: 160px; /* Significantly increased padding for tab bar */
+}
+
+/* Responsive grid for product items */
+@media (max-width: 576px) {
+  .products-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    padding: 0 0.75rem 6rem !important; /* Much more bottom padding */
+    margin-bottom: 3rem !important; /* Additional bottom margin */
+  }
+  
+  .product-card {
+    height: 300px !important;
+    border-radius: 12px !important;
+    margin-bottom: 0; /* Remove default margin */
+  }
+  
+  .product-image {
+    height: 140px !important;
+    border-radius: 0 !important;
+  }
+  
+  .product-info {
+    padding: 0.75rem !important;
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  
+  .product-name {
+    font-size: 0.9rem !important;
+    text-align: center !important;
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .product-price {
+    font-size: 1rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .product-category {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .product-add-btn {
+    padding: 0.6rem 0.75rem !important;
+    font-size: 0.85rem !important;
+    margin-top: auto !important;
+    width: 100% !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* Mobile Category Filter */
+.category-filter {
+  margin-top: 1rem !important;
+  width: 100% !important;
+  overflow-x: auto !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.category-filter-container {
+  margin-top: 1.25rem !important;
+  width: 100% !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+.filter-label {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  color: var(--ion-text-color) !important;
+  margin: 0 0 0.5rem 0 !important;
+}
+
+.category-segment {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 3px !important;
+  min-height: 40px !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.category-segment::-webkit-scrollbar {
+  display: none !important;
+}
+
+.category-segment-button {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  flex-shrink: 0 !important;
+  min-width: auto !important;
+  padding: 0.4rem 0.8rem !important;
+  margin: 0 2px !important;
+}
+
+.category-segment-button ion-label {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  max-width: none !important;
+  padding: 4px 8px !important;
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+  .products-page .products-title {
+    font-size: 1.4rem !important;
+  }
+  
+  .products-header {
+    padding: 1.5rem 0.75rem 0.5rem !important;
+    margin-top: 0.5rem !important;
+  }
+  
+  .products-header input {
+    padding: 0.6rem 0.8rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .products-list {
+    padding: 0 0.5rem 7rem !important; /* Much more bottom padding */
+    margin-bottom: 3rem !important;
+  }
+  
+  .product-card {
+    height: 280px !important;
+  }
+  
+  .product-image {
+    height: 120px !important;
+  }
+  
+  .product-info {
+    padding: 0.6rem !important;
+  }
+  
+  .product-name {
+    font-size: 0.85rem !important;
+  }
+  
+  .product-price {
+    font-size: 0.95rem !important;
+  }
+  
+  .product-category {
+    font-size: 0.75rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+  
+  .product-add-btn {
+    padding: 0.5rem !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .category-filter {
+    margin-top: 0.75rem !important;
+  }
+  
+  .category-filter-container {
+    margin-top: 1rem !important;
+  }
+  
+  .filter-label {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+  
+  .category-segment {
+    padding: 2px !important;
+    min-height: 36px !important;
+  }
+  
+  .category-segment-button {
+    padding: 0.3rem 0.6rem !important;
+    margin: 0 1px !important;
+  }
+  
+  .category-segment-button ion-label {
+    font-size: 0.75rem !important;
+    padding: 3px 6px !important;
+  }
+  
+  .categories-button {
+    padding: 0.55rem 0.75rem !important;
+    font-size: 0.85rem !important;
+    margin-top: 0.6rem !important;
+  }
+  
+  .categories-button ion-icon {
+    font-size: 0.95rem !important;
+  }
+  
+  .selected-category {
+    font-size: 0.75rem !important;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .products-header input {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: var(--ion-text-color) !important;
+  }
+  
+  .products-header input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+    opacity: 1 !important;
+  }
+  
+  .categories-button {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+  }
+}
+
+/* Mobile Categories Dropdown */
+.categories-dropdown-container {
+  position: relative !important;
+  margin-top: 0.75rem !important;
+  width: 100% !important;
+}
+
+.categories-dropdown {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: var(--ion-card-background) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  z-index: 100 !important;
+  max-height: 250px !important;
+  overflow-y: auto !important;
+  margin-top: 4px !important;
+}
+
+.category-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0.6rem 0.85rem !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  font-size: 0.9rem !important;
+}
+
+.category-item:hover {
+  background: rgba(var(--ion-color-primary-rgb), 0.04) !important;
+}
+
+.category-item.selected {
+  background: rgba(var(--ion-color-primary-rgb), 0.08) !important;
+  color: var(--ion-color-primary) !important;
+}
+
+.item-count {
+  font-size: 0.8rem !important;
+  color: var(--ion-color-medium) !important;
+  margin-right: 0.5rem !important;
+}
+
+.category-item ion-icon {
+  font-size: 0.9rem !important;
+  color: var(--ion-color-primary) !important;
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+  .categories-dropdown {
+    max-height: 200px !important;
+  }
+  
+  .category-item {
+    padding: 0.55rem 0.75rem !important;
+    font-size: 0.85rem !important;
+  }
+  
+  .item-count {
+    font-size: 0.75rem !important;
+  }
+}
+
+.products-page ion-back-button {
+    --min-height: 36px !important;
+    --min-width: 36px !important;
+    --padding-start: 6px !important;
+    --padding-end: 6px !important;
+  }

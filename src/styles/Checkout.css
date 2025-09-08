@@ -1,0 +1,534 @@
+/* Checkout Page - Clean Minimal Design */
+.checkout-content {
+  --background: var(--ion-background-color);
+  padding: 0;
+}
+
+.checkout-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+  width: 100%;
+}
+
+/* Global Card Styles */
+.checkout-container ion-card {
+  width: 95%;
+  max-width: 800px;
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Empty Cart State */
+.checkout-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.checkout-empty ion-icon {
+  font-size: 4rem;
+  color: var(--ion-color-medium);
+  margin-bottom: 1rem;
+}
+
+/* Order Summary Card */
+.order-summary-card ion-card-content {
+  padding: 1rem 1.25rem;
+}
+
+.simple-order-summary {
+  padding: 0;
+  width: 100%;
+}
+
+.simple-order-items {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.simple-order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--ion-color-light);
+  width: 100%;
+}
+
+.simple-item-details {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.simple-item-name {
+  font-weight: 500;
+  margin-right: 0.75rem;
+}
+
+.simple-item-quantity {
+  color: var(--ion-color-medium);
+  font-size: 0.95em;
+}
+
+.simple-item-price {
+  font-weight: 500;
+  min-width: 80px;
+  text-align: right;
+}
+
+.simple-order-totals {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ion-color-light);
+  width: 100%;
+}
+
+.simple-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  width: 100%;
+}
+
+.simple-total-row span:first-child {
+  color: var(--ion-color-medium);
+}
+
+.simple-total-row span:last-child {
+  min-width: 80px;
+  text-align: right;
+  font-weight: 500;
+}
+
+.simple-free-delivery-note {
+  color: var(--ion-color-success);
+  font-size: 0.9em;
+  text-align: right;
+  margin-bottom: 0.75rem;
+  width: 100%;
+}
+
+.final-total {
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--ion-color-light);
+}
+
+.final-total span:last-child {
+  font-weight: 700;
+  color: var(--ion-color-dark);
+}
+
+/* Card Headers Global Style */
+ion-card ion-card-header {
+  padding: 1rem;
+}
+
+ion-card ion-card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+ion-card ion-card-title ion-icon {
+  font-size: 1.4rem;
+  color: var(--ion-color-primary);
+}
+
+/* Delivery Address Card */
+.delivery-address-card ion-card-content {
+  padding: 1.25rem;
+}
+
+.simple-address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.simple-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.simple-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.simple-form-label {
+  font-weight: 500;
+  color: var(--ion-color-dark);
+}
+
+.simple-form-label.required::after {
+  content: "*";
+  color: var(--ion-color-danger);
+  margin-left: 4px;
+}
+
+.simple-form-input {
+  padding: 0.75rem;
+  border: 1px solid var(--ion-color-light);
+  border-radius: 8px;
+  background: var(--ion-color-light-tint);
+  font-size: 1em;
+  width: 100%;
+}
+
+.simple-form-input:focus {
+  outline: none;
+  border-color: var(--ion-color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--ion-color-primary-rgb), 0.2);
+}
+
+/* Payment Method Card */
+.payment-method-card ion-card-content {
+  padding: 1.25rem;
+}
+
+.payment-method-card ion-item {
+  --padding-start: 1.25rem;
+  --padding-end: 1.25rem;
+  --inner-padding-end: 0;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  --background: var(--ion-color-light-tint);
+}
+
+.payment-method-card ion-item:last-child {
+  margin-bottom: 0;
+}
+
+.payment-method-card ion-icon {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+/* Order Notes Card */
+.order-notes-card ion-card-content {
+  padding: 1.25rem;
+}
+
+.simple-notes-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.simple-notes-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--ion-color-light);
+  border-radius: 8px;
+  background: var(--ion-color-light-tint);
+  font-size: 1em;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.simple-notes-textarea:focus {
+  outline: none;
+  border-color: var(--ion-color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--ion-color-primary-rgb), 0.2);
+}
+
+.simple-character-count {
+  text-align: right;
+  color: var(--ion-color-medium);
+  font-size: 0.9em;
+}
+
+/* Place Order Section */
+.place-order-section {
+  padding: 1rem 0;
+  position: sticky;
+  bottom: 0;
+  background: var(--ion-background-color);
+  z-index: 1000;
+}
+
+.place-order-btn {
+  margin: 0;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Order Success Modal */
+.order-success-modal {
+  --height: auto;
+  --width: 90%;
+  max-width: 400px;
+}
+
+.order-success-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.order-success-content .success-icon {
+  font-size: 4rem;
+  color: var(--ion-color-success);
+  margin-bottom: 1rem;
+}
+
+.order-success-content h2 {
+  margin: 1rem 0;
+  color: var(--ion-color-dark);
+}
+
+.order-number {
+  font-size: 1.2em;
+  color: var(--ion-color-primary);
+  margin: 0.5rem 0;
+}
+
+.success-message {
+  color: var(--ion-color-medium);
+  margin: 1rem 0;
+}
+
+.view-orders-btn {
+  margin-top: 1.5rem;
+}
+
+/* Loading State */
+.loading-spinner {
+  margin-right: 0.5rem;
+}
+
+/* Toast Styling */
+ion-toast {
+  --background: var(--ion-color-dark);
+  --color: var(--ion-color-light);
+  --border-radius: 8px;
+  --button-color: var(--ion-color-primary);
+}
+
+/* Admin Order Details Styles */
+.admin-order-card {
+  width: 95%;
+  max-width: 800px;
+  margin: 1rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: var(--ion-background-color);
+}
+
+.admin-order-header {
+  padding: 1.25rem;
+  background: var(--ion-background-color);
+  border-bottom: 1px solid var(--ion-color-light);
+}
+
+.admin-order-content {
+  padding: 0;
+  background: var(--ion-background-color);
+}
+
+.section-title-admin {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--ion-color-dark);
+}
+
+.section-title-admin ion-icon {
+  font-size: 1.4rem;
+  color: var(--ion-color-primary);
+}
+
+.admin-table-container {
+  padding: 0;
+  background: var(--ion-background-color);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--ion-background-color);
+  margin-bottom: 0;
+}
+
+.admin-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--ion-color-medium);
+  border-bottom: 1px solid var(--ion-color-light);
+}
+
+.admin-table td {
+  padding: 1rem;
+  color: var(--ion-color-dark);
+  border-bottom: 1px solid var(--ion-color-light);
+}
+
+/* Item cells */
+.admin-table .item-name {
+  font-weight: 500;
+}
+
+.admin-table .item-quantity {
+  width: 100px;
+}
+
+.admin-table .item-price {
+  width: 120px;
+}
+
+/* Item Details */
+
+.admin-table tbody tr:hover {
+  background-color: var(--ion-color-light-tint);
+}
+
+/* Item Details */
+.item-name {
+  font-weight: 500;
+}
+
+.item-quantity {
+  text-align: center;
+}
+
+.item-price,
+.item-subtotal {
+  text-align: right;
+}
+
+/* Order Summary Section */
+.order-total-row {
+  background: var(--ion-background-color);
+  border-top: 2px solid var(--ion-color-light);
+}
+
+.order-total-row td {
+  padding: 1.5rem;
+  font-size: 1.2em;
+}
+
+.order-total-row td:first-child {
+  font-weight: 700;
+  color: var(--ion-color-dark);
+}
+
+.order-total-row td:last-child {
+  text-align: right;
+  font-weight: 700;
+  color: var(--ion-color-primary);
+}
+
+@media (max-width: 768px) {
+  .admin-order-card {
+    width: 100%;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .admin-table thead {
+    display: none;
+  }
+
+  .admin-table tbody tr {
+    display: block;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--ion-color-light);
+  }
+
+  .admin-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border: none;
+  }
+
+  .admin-table td:before {
+    content: attr(data-label);
+    font-weight: 500;
+    color: var(--ion-color-medium);
+  }
+
+  .item-price,
+  .item-subtotal {
+    text-align: right;
+  }
+
+  .order-summary-section {
+    margin-top: 0;
+  }
+
+  .summary-row {
+    padding: 0.75rem 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .checkout-container {
+    padding: 0.75rem;
+    gap: 1rem;
+  }
+
+  .checkout-container ion-card {
+    width: 100%;
+  }
+
+  .simple-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  ion-card ion-card-header {
+    padding: 1rem;
+  }
+
+  ion-card ion-card-content {
+    padding: 1rem;
+  }
+
+  .order-summary-card ion-card-content,
+  .delivery-address-card ion-card-content,
+  .payment-method-card ion-card-content,
+  .order-notes-card ion-card-content {
+    padding: 1rem;
+  }
+
+  .payment-method-card ion-item {
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+  }
+
+  .place-order-section {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .place-order-section .place-order-btn {
+    width: 95%;
+    margin: 0 auto;
+  }
+}

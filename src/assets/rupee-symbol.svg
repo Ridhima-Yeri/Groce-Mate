@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Indian Rupee Symbol SVG -->
+  <g fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Top horizontal line -->
+    <path d="M144 128h224" />
+    <!-- Middle horizontal line -->
+    <path d="M144 192h224" />
+    <!-- Bottom right diagonal line representing the main curve of ₹ -->
+    <path d="M256 384l-112-112h112c64 0 96-32 96-80s-32-64-80-64h-128" />
+  </g>
+</svg>

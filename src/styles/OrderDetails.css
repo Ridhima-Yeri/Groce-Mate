@@ -1,0 +1,664 @@
+/* Order Details Page Styles - Admin Dashboard Design */
+.order-details-page {
+  --background: var(--ion-background-color);
+  overflow-x: hidden;
+}
+
+.admin-dashboard-content {
+  --background: var(--ion-background-color);
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.admin-dashboard-full {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.admin-dashboard-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ion-text-color);
+}
+
+/* Order Summary Card */
+.order-summary-card {
+  background: var(--ion-card-background);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--ion-color-light);
+}
+
+.order-summary-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.order-id-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.order-id-section h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ion-color-primary);
+  letter-spacing: -0.5px;
+}
+
+.status-badge-large {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 20px;
+}
+
+.order-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ion-color-light);
+}
+
+.order-date-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ion-color-medium);
+  font-size: 0.95rem;
+}
+
+.order-total-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.total-label {
+  font-size: 0.85rem;
+  color: var(--ion-color-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.total-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ion-color-success);
+}
+
+/* Status Progress Indicator */
+.status-progress {
+  padding: 1.5rem 0;
+  margin: 1rem 0;
+}
+
+.progress-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.step-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ion-color-light);
+  color: var(--ion-color-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 2px solid var(--ion-color-light);
+}
+
+.progress-step.completed .step-icon {
+  background: var(--ion-color-success);
+  color: white;
+  border-color: var(--ion-color-success);
+}
+
+.progress-step span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ion-color-medium);
+  text-align: center;
+}
+
+.progress-step.completed span {
+  color: var(--ion-color-success);
+}
+
+.progress-line {
+  flex: 1;
+  height: 2px;
+  background: var(--ion-color-light);
+  margin: 0 0.5rem;
+  position: relative;
+  top: -20px;
+}
+
+.progress-step.completed + .progress-line {
+  background: var(--ion-color-success);
+}
+
+/* Special handling for completed status lines */
+.progress-steps .progress-step:nth-child(1).completed + .progress-line:nth-child(2),
+.progress-steps .progress-step:nth-child(3).completed + .progress-line:nth-child(4),
+.progress-steps .progress-step:nth-child(5).completed + .progress-line:nth-child(6) {
+  background: var(--ion-color-success);
+}
+
+/* Admin Form Sections */
+.admin-form {
+  background: var(--ion-card-background);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title-admin {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ion-text-color);
+}
+
+.section-title-admin ion-icon {
+  font-size: 1.4rem;
+  color: var(--ion-color-primary);
+}
+
+/* Table Styles */
+.admin-table {
+  background: var(--ion-card-background);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.admin-table th {
+  background: var(--ion-color-light);
+  color: var(--ion-text-color);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--ion-color-light-shade);
+}
+
+.admin-table th:last-child {
+  text-align: right;
+}
+
+.admin-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--ion-color-light);
+  color: var(--ion-text-color);
+}
+
+.admin-table tr:hover {
+  background: var(--ion-color-light);
+}
+
+.admin-table td:last-child {
+  text-align: right;
+  font-weight: 600;
+}
+
+.total-row-admin {
+  background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+}
+
+.total-row-admin:hover {
+  background: var(--ion-color-primary-shade) !important;
+}
+
+.total-row-admin td {
+  border-bottom: none;
+  font-weight: 600;
+}
+
+/* Summary Rows */
+.summary-row {
+  background-color: var(--ion-color-light-tint);
+}
+
+.summary-row td {
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+}
+
+.summary-row.subtotal {
+  border-top: 2px solid var(--ion-color-light);
+}
+
+.summary-row.final-total {
+  background-color: var(--ion-color-light);
+  font-weight: 600;
+}
+
+.summary-row.final-total td {
+  font-size: 1.1em;
+  color: var(--ion-color-primary);
+  font-weight: 700;
+}
+
+/* Info Grid */
+.info-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.simple-admin-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ion-color-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--ion-text-color);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Order Notes */
+.order-notes-admin {
+  background: var(--ion-color-light);
+  border-radius: 8px;
+  padding: 1.25rem;
+  border-left: 4px solid var(--ion-color-primary);
+}
+
+.order-notes-admin p {
+  margin: 0;
+  font-style: italic;
+  color: var(--ion-color-medium);
+  line-height: 1.6;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.simple-admin-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.simple-admin-btn ion-icon {
+  font-size: 1.1rem;
+}
+
+.simple-admin-btn:hover {
+  background: var(--ion-color-primary-shade);
+  transform: translateY(-1px);
+}
+
+.simple-admin-btn.outline {
+  background: transparent;
+  border: 2px solid var(--ion-color-medium);
+  color: var(--ion-color-medium);
+}
+
+.simple-admin-btn.outline:hover {
+  background: var(--ion-color-light);
+}
+
+/* Themed Toolbar */
+.themed-toolbar {
+  --background: var(--ion-toolbar-background);
+  --color: var(--ion-toolbar-color);
+}
+
+/* Loading Container */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  color: var(--ion-color-medium);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .order-summary-card,
+  .admin-form {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .admin-table th {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .admin-table tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .order-notes-admin {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .admin-dashboard-full {
+    padding: 0.5rem;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+  
+  .order-summary-card,
+  .admin-form {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  
+  .order-id-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .order-id-section h1 {
+    font-size: 1.5rem;
+  }
+  
+  .order-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .order-total-info {
+    align-items: flex-start;
+  }
+  
+  .section-title-admin {
+    font-size: 1.1rem;
+  }
+  
+  /* Mobile Progress Steps */
+  .status-progress {
+    padding: 1rem 0;
+  }
+  
+  .progress-steps {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .progress-step {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .progress-line {
+    display: none;
+  }
+  
+  .step-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+  
+  .progress-step span {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+  
+  /* Mobile Table - Card Layout */
+  .admin-table {
+    overflow: visible;
+  }
+  
+  .admin-table table,
+  .admin-table thead,
+  .admin-table tbody,
+  .admin-table th,
+  .admin-table td,
+  .admin-table tr {
+    display: block;
+  }
+  
+  .admin-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  .admin-table tr {
+    background: var(--ion-color-light);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid var(--ion-color-light-shade);
+  }
+  
+  .total-row-admin {
+    background: var(--ion-color-primary);
+    color: var(--ion-color-primary-contrast);
+  }
+  
+  .admin-table td {
+    border: none;
+    border-bottom: 1px solid var(--ion-color-light-shade);
+    position: relative;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+  }
+  
+  .admin-table td:last-child {
+    border-bottom: none;
+  }
+  
+  .admin-table td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--ion-color-medium);
+    font-size: 0.85rem;
+    min-width: 80px;
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+  }
+  
+  .total-row-admin td:before {
+    color: var(--ion-color-primary-contrast);
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .info-grid {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .order-summary-card,
+  .admin-form {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .order-id-section h1 {
+    font-size: 1.3rem;
+  }
+  
+  .section-title-admin {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .admin-table tr {
+    padding: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .admin-table td {
+    padding: 0.4rem 0;
+    font-size: 0.85rem;
+  }
+  
+  .admin-table td:before {
+    font-size: 0.8rem;
+    min-width: 70px;
+  }
+}
+
+/* Ensure no horizontal overflow */
+.order-details-page,
+.admin-dashboard-full,
+.order-summary-card,
+.admin-form,
+.admin-table {
+  overflow-x: hidden !important;
+}
+
+/* Hide scrollbars */
+.order-details-page::-webkit-scrollbar,
+.admin-dashboard-full::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Print Styles */
+@media print {
+  .order-details-page {
+    --background: white;
+  }
+  
+  .admin-dashboard-full {
+    max-width: none;
+    padding: 0;
+  }
+  
+  .order-summary-card,
+  .admin-form {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+  
+  .action-buttons {
+    display: none;
+  }
+  
+  .status-progress {
+    page-break-inside: avoid;
+  }
+  
+  .admin-table {
+    page-break-inside: avoid;
+  }
+}
+
+.admin-table .action-label {
+  text-align: right;
+  padding-right: 2rem;
+  color: var(--ion-color-medium);
+}
+
+.admin-table .action-value {
+  text-align: right;
+  font-weight: 600;
+  min-width: 120px;
+}
+
+.summary-row.final-total .action-value {
+  color: var(--ion-color-primary);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .admin-table .action-label {
+    text-align: left;
+    padding-right: 0;
+  }
+  
+  .admin-table .action-value {
+    text-align: right;
+  }
+  
+  .admin-table td[data-label] {
+    justify-content: space-between;
+  }
+}

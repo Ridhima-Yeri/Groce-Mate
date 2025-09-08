@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Indian Rupee Symbol SVG -->
+  <g fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Top horizontal line -->
+    <path d="M128 128h256" />
+    <!-- Middle horizontal line -->
+    <path d="M128 224h256" />
+    <!-- Vertical line representing the main stem of ₹ -->
+    <path d="M256 128v256" />
+    <!-- Bottom right diagonal line -->
+    <path d="M320 304l-128 96" />
+    <!-- Circle representing coin-like appearance -->
+    <circle cx="256" cy="256" r="160" />
+  </g>
+</svg>
