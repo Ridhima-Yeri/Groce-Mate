@@ -340,18 +340,7 @@ const Profile: React.FC = () => {
 
   return (
     <IonPage className="profile-page">
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/" text="" />
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
       <IonContent fullscreen className="profile-content">
-        <div className="profile-header">
-          <h1 className="profile-title">Profile</h1>
-        </div>
-        
         <div 
           className="profile-container" 
           ref={mainContentRef} 

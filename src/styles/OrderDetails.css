@@ -1,38 +1,245 @@
+/* Simple Card for Order Sections */
+.simple-card {
+  background: var(--ion-card-background, #fff);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 1.5rem 1.25rem;
+  margin-bottom: 2rem;
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+}
+
+.simple-card:last-child {
+  margin-bottom: 0;
+}
+
+.simple-card .minimal-section {
+  margin: 0;
+}
+
+.simple-card .minimal-title {
+  margin-bottom: 1.25rem;
+}
+
+.simple-card .minimal-table {
+  margin-bottom: 0.5rem;
+}
+/* Minimal Section Styles for Order Details */
+.minimal-section {
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.minimal-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: var(--ion-text-color);
+}
+
+.minimal-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: none;
+  font-size: 0.95rem;
+}
+
+.minimal-table th {
+  border-bottom: 1px solid #eee;
+  padding: 8px;
+  font-weight: 500;
+  text-align: left;
+  background: none;
+}
+
+.minimal-table td {
+  padding: 8px;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.minimal-label {
+  font-weight: 500;
+  color: var(--ion-color-medium);
+  width: 160px;
+  text-align: left;
+  background: none;
+  border: none;
+}
+
+.minimal-value {
+  text-align: left;
+  background: none;
+  border: none;
+}
+
+.minimal-total {
+  font-weight: 700;
+  font-size: 1rem;
+}
 /* Order Details Page Styles - Admin Dashboard Design */
+/* Reset and base styles */
 .order-details-page {
-  --background: var(--ion-background-color);
-  overflow-x: hidden;
+  background: var(--ion-background-color) !important;
+  color: var(--ion-text-color) !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Remove the first toolbar (GroceMate) */
+.order-details-page ion-header:first-of-type {
+  display: none !important;
+}
+
+.order-details-page ion-content {
+  --background: var(--ion-background-color) !important;
+  color: var(--ion-text-color) !important;
+}
+
+/* Header and Toolbar Styles */
+.order-details-page ion-header {
+  display: block !important;
+  background: var(--ion-background-color) !important;
+}
+
+.order-details-page ion-toolbar {
+  --min-height: 56px !important;
+  --background: var(--ion-background-color) !important;
+  --border-style: none !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+.order-details-page ion-toolbar .toolbar-container {
+  padding: 0 8px !important;
+}
+
+/* Title styling */
+.admin-dashboard-title {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  color: var(--ion-text-color) !important;
+  text-align: center !important;
+}
+
+/* Back button and close button styling */
+.order-details-page ion-back-button {
+  --color: var(--ion-color-primary) !important;
+  --icon-font-size: 24px !important;
+  --padding-start: 0 !important;
+  --padding-end: 0 !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+}
+
+.order-details-page ion-back-button::part(text) {
+  display: none !important;
+}
+
+.order-details-page ion-back-button::part(native) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.order-details-page ion-buttons[slot="end"] ion-button {
+  --color: var(--ion-color-primary) !important;
+  font-size: 24px !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+}
+
+/* Content Styles */
+.order-details-page ion-content {
+  --padding-top: 72px !important; /* Ensure header is visible below toolbar */
+  --padding-bottom: 16px !important;
+  --background: var(--ion-background-color) !important;
 }
 
 .admin-dashboard-content {
-  --background: var(--ion-background-color);
-  padding: 0;
-  overflow-x: hidden;
+  display: block !important;
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: var(--ion-safe-area-top, 20px) !important;
+}
+
+/* Ensure content starts below header */
+.order-details-page ion-content::part(scroll) {
+  padding-top: 56px !important;
+}
+
+.admin-dashboard-content {
+  --background: var(--ion-background-color) !important;
+  --padding-start: 16px !important;
+  --padding-end: 16px !important;
+  --padding-top: 8px !important;
 }
 
 .admin-dashboard-full {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
-  overflow-x: hidden;
   width: 100%;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .admin-dashboard-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--ion-text-color);
+  margin: 0;
+  padding: 16px 0;
+}
+
+/* Toolbar Container */
+ion-toolbar .toolbar-container {
+  min-height: 56px !important;
+  padding: 4px 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: var(--ion-toolbar-background) !important;
+}
+
+ion-toolbar .toolbar-content {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+}
+
+/* Back button styling */
+ion-back-button {
+  --color: var(--ion-color-primary) !important;
+  --icon-font-size: 24px !important;
+  margin: 0 !important;
+}
+
+/* iOS specific fixes */
+.ios .order-details-page ion-header {
+  height: max-content !important;
+}
+
+.ios .order-details-page ion-content {
+  --padding-top: env(safe-area-inset-top, 0px) !important;
+}
+
+/* Title styling */
+ion-title {
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  color: var(--ion-text-color) !important;
+  padding: 0 !important;
 }
 
 /* Order Summary Card */
 .order-summary-card {
-  background: var(--ion-card-background);
+  background: var(--ion-card-background) !important;
+  color: var(--ion-text-color) !important;
   border-radius: 12px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--ion-color-light);
+  padding: 16px;
+  margin-top: 8px;
+  margin-bottom: 16px;
 }
 
 .order-summary-header {
@@ -45,8 +252,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.order-id-section h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ion-text-color);
+  margin: 0;
 }
 
 .order-id-section h1 {
@@ -182,11 +396,15 @@
 
 /* Admin Form Sections */
 .admin-form {
-  background: var(--ion-card-background);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: none !important;
+  color: var(--ion-text-color) !important;
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 1rem;
+  box-shadow: none;
+  text-align: left !important;
+  font-size: 1rem;
+  font-family: inherit;
 }
 
 .section-title-admin {
@@ -206,10 +424,11 @@
 
 /* Table Styles */
 .admin-table {
-  background: var(--ion-card-background);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: none !important;
+  color: var(--ion-text-color) !important;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
 }
 
 .admin-table table {
@@ -218,55 +437,51 @@
   table-layout: fixed;
 }
 
-.admin-table th {
-  background: var(--ion-color-light);
-  color: var(--ion-text-color);
-  padding: 1rem;
-  text-align: left;
-  font-weight: 600;
-  border-bottom: 1px solid var(--ion-color-light-shade);
+.admin-table th, .admin-table td {
+  text-align: left !important;
 }
 
-.admin-table th:last-child {
-  text-align: right;
+.admin-table th {
+  background: none;
+  color: var(--ion-text-color);
+  padding: 8px;
+  text-align: left !important;
+  font-weight: 500;
+  border-bottom: 1px solid #eee;
 }
 
 .admin-table td {
-  padding: 1rem;
-  border-bottom: 1px solid var(--ion-color-light);
+  padding: 8px;
+  border-bottom: 1px solid #f3f3f3;
   color: var(--ion-text-color);
-}
-
-.admin-table tr:hover {
-  background: var(--ion-color-light);
+  text-align: left !important;
 }
 
 .admin-table td:last-child {
-  text-align: right;
+  text-align: right !important;
   font-weight: 600;
 }
 
-.total-row-admin {
-  background: var(--ion-color-primary);
-  color: var(--ion-color-primary-contrast);
+.admin-table th[data-label="Price"],
+.admin-table th[data-label="Subtotal"],
+.admin-table td[data-label="Price"],
+.admin-table td[data-label="Subtotal"],
+.admin-table th[data-label="Amount"],
+.admin-table td[data-label="Amount"] {
+  text-align: right !important;
 }
 
-.total-row-admin:hover {
-  background: var(--ion-color-primary-shade) !important;
-}
-
-.total-row-admin td {
-  border-bottom: none;
-  font-weight: 600;
+.summary-row td.action-value {
+  text-align: right !important;
 }
 
 /* Summary Rows */
 .summary-row {
-  background-color: var(--ion-color-light-tint);
+  background: none;
 }
 
 .summary-row td {
-  padding: 0.75rem 1rem;
+  padding: 8px;
   font-weight: 500;
 }
 
@@ -275,12 +490,12 @@
 }
 
 .summary-row.final-total {
-  background-color: var(--ion-color-light);
-  font-weight: 600;
+  background: none;
+  font-weight: 700;
 }
 
 .summary-row.final-total td {
-  font-size: 1.1em;
+  font-size: 1rem;
   color: var(--ion-color-primary);
   font-weight: 700;
 }
@@ -352,7 +567,51 @@
   justify-content: center;
 }
 
+.order-details-page ion-back-button {
+  margin: 0 !important;
+  padding: 0 !important;
+  --padding-start: 0 !important;
+  --color: var(--ion-color-primary) !important;
+}
+
+.status-badge-large {
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  text-transform: capitalize !important;
+  border-radius: 16px !important;
+}
+
+/* Back and close button styling */
+.order-details-page ion-buttons[slot="start"] ion-button {
+  margin: 0 !important;
+  padding: 0 !important;
+  --padding-start: 4px !important;
+  --color: var(--ion-color-primary) !important;
+}
+
+.order-details-page ion-buttons[slot="start"] ion-button ion-icon {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: var(--ion-text-color) !important;
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 0 1.5rem !important;
 .simple-admin-btn ion-icon {
+/* Ensure .page-header is below toolbar and aligned to page body */
+.order-details-page .page-header {
+  padding: 72px 1.5rem 1rem !important;
+  background: var(--ion-background-color) !important;
+  color: var(--ion-text-color) !important;
+  border-bottom: 1px solid var(--ion-border-color) !important;
+  margin-bottom: 1.5rem !important;
+  position: relative !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
   font-size: 1.1rem;
 }
 
@@ -602,63 +861,166 @@
 
 /* Print Styles */
 @media print {
-  .order-details-page {
-    --background: white;
+  /* Print Environment Setup */
+  @page {
+    size: A4;
+    margin: 1.5cm;
   }
-  
-  .admin-dashboard-full {
-    max-width: none;
-    padding: 0;
+
+  /* Hide everything by default */
+  body * {
+    visibility: hidden !important;
   }
-  
-  .order-summary-card,
+
+  /* Show only print section */
+  .print-section,
+  .print-section * {
+    visibility: visible !important;
+  }
+
+  /* Basic print layout */
+  .print-section {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    padding: 20px !important;
+    background: white !important;
+  }
+
+  /* Hide unnecessary elements */
+  .print-section .status-progress,
+  .print-section .action-buttons,
+  .print-section .admin-form:not(.print-summary):not(:has(.section-title-admin)),
+  .print-section ion-button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Order header styling */
+  .print-section .order-id-section {
+    border-bottom: 2px solid #000 !important;
+    padding-bottom: 15px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .print-section .order-id-section h1 {
+    font-size: 24pt !important;
+    color: var(--ion-text-color) !important;
+  }
+
+  /* Status badge */
+  .print-section .status-badge-large {
+    background: none !important;
+    border: 1px solid #000 !important;
+    color: var(--ion-text-color) !important;
+    font-size: 12pt !important;
+  }
+
+  /* Total amount styling */
+  .print-section .final-total td {
+    font-size: 14pt !important;
+    font-weight: bold !important;
+    color: var(--ion-text-color) !important;
+    border-top: 2px solid #000 !important;
+    padding: 10pt !important;
+  }
+
+  /* Payment info styling */
+  .print-section .section-title-admin {
+    font-size: 14pt !important;
+    color: var(--ion-text-color) !important;
+    margin-bottom: 10pt !important;
+  }
+
+  .print-section .simple-admin-label {
+    color: #666 !important;
+    font-size: 10pt !important;
+  }
+
+  .print-section .info-value {
+    color: var(--ion-text-color) !important;
+    font-size: 12pt !important;
+  }
+
+  /* Footer styling */
+  .print-section .print-footer {
+    margin-top: 30pt !important;
+    padding-top: 15pt !important;
+    border-top: 1px solid #ccc !important;
+    text-align: center !important;
+  }
+
+  .print-section .print-footer p {
+    margin: 5pt 0 !important;
+    color: #666 !important;
+    font-size: 10pt !important;
+  }
+
+  .print-section .print-timestamp {
+    font-style: italic !important;
+  }
+
+  /* Force colors to print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+    
+  .info-item {
+    margin-bottom: 1em;
+  }
+
+  .simple-admin-label {
+    font-size: 9pt;
+    color: #666;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  .info-value {
+    font-size: 10pt;
+    color: #000;
+  }
+
+  /* Print Footer */
+  .print-footer {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    font-size: 9pt;
+    color: #666;
+  }
+
+  .print-timestamp {
+    margin-top: 0.5em;
+    font-style: italic;
+  }
+
+  /* Force Background Colors */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Status Badge */
+  .status-badge-large {
+    background: none !important;
+    border: 1px solid #000;
+    color: #000 !important;
+    padding: 4pt 8pt;
+    font-size: 9pt;
+  }
+
+  /* Ensure Page Breaks */
   .admin-form {
-    box-shadow: none;
-    border: 1px solid #ccc;
     page-break-inside: avoid;
   }
-  
-  .action-buttons {
-    display: none;
-  }
-  
-  .status-progress {
+
+  .print-content > div {
     page-break-inside: avoid;
   }
-  
-  .admin-table {
-    page-break-inside: avoid;
-  }
-}
 
-.admin-table .action-label {
-  text-align: right;
-  padding-right: 2rem;
-  color: var(--ion-color-medium);
-}
-
-.admin-table .action-value {
-  text-align: right;
-  font-weight: 600;
-  min-width: 120px;
-}
-
-.summary-row.final-total .action-value {
-  color: var(--ion-color-primary);
-  font-weight: 700;
-}
-
-@media (max-width: 768px) {
-  .admin-table .action-label {
-    text-align: left;
-    padding-right: 0;
-  }
-  
-  .admin-table .action-value {
-    text-align: right;
-  }
-  
-  .admin-table td[data-label] {
-    justify-content: space-between;
-  }
 }

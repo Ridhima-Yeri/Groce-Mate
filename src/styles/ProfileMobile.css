@@ -20,7 +20,7 @@
 
 /* Enhanced profile header for mobile */
 .profile-header {
-  padding: 4rem 1rem 1rem !important;
+  padding: calc(var(--ion-toolbar-height, 48px) + 1.25rem) 1rem 1rem !important; /* Ensure header is below toolbar */
   margin: 0 auto 0.5rem !important;
   width: 100% !important;
   max-width: 800px !important;

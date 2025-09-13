@@ -1,4 +1,10 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+
+declare namespace JSX {
+  interface IntrinsicElements {
+    [elemName: string]: any;
+  }
+}
 import { useHistory } from 'react-router-dom';
 import { IonContent, IonPage, IonIcon, IonHeader, IonToolbar, IonTitle, IonButtons, IonBackButton, IonBadge, IonText, IonRefresher, IonRefresherContent, IonButton, IonModal, IonList, IonItem, IonLabel, IonGrid, IonRow, IonCol, IonCard, IonCardContent, IonCardHeader, IonSpinner } from '@ionic/react';
 import { bagCheckOutline, timeOutline, chevronForwardOutline, cartOutline, closeOutline, locationOutline, cardOutline, callOutline, chatboxEllipsesOutline } from 'ionicons/icons';
@@ -29,7 +35,13 @@ interface Order {
 }
 
 // Remove the temporary getUserOrders function and replace with localStorage fetch
-const getUserOrders = async () => {
+interface ApiResponse<T> {
+  success: boolean;
+  data: T;
+  message: string;
+}
+
+const getUserOrders = async (): Promise<ApiResponse<Order[]>> => {
   try {
     // Get orders from localStorage
     const orders = JSON.parse(localStorage.getItem('orders') || '[]');
@@ -156,23 +168,14 @@ const Orders: React.FC = () => {
 
   return (
     <IonPage className="orders-page">
-      <IonHeader className="orders-header-wrapper">
-        <IonToolbar className="orders-toolbar">
-          <div className="custom-back-button" onClick={() => history.goBack()}>
-            <IonIcon 
-              icon={chevronForwardOutline} 
-              className="back-button-icon"
-            />
-          </div>
-        </IonToolbar>
-      </IonHeader>
       <IonContent fullscreen className="orders-content">
         <IonRefresher slot="fixed" onIonRefresh={handleRefresh}>
           <IonRefresherContent></IonRefresherContent>
         </IonRefresher>
         
-        <div className="orders-header">
-          <h1 className="orders-title">Orders</h1>
+        <div className="page-header">
+          <h1 className="page-title">Orders</h1>
+          <p className="page-subtitle">Track your order history and status</p>
         </div>
         
         <div className="orders-container">

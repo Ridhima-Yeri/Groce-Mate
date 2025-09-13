@@ -1081,13 +1081,13 @@
 
 /* Footer Section */
 .home-footer {
-  background: var(--ion-color-step-50);
+  background: var(--ion-background-color);
   color: var(--ion-text-color);
   text-align: center;
-  padding: 0rem 0; /* Reduced vertical padding */
+  padding: 1.5rem 0;
   font-size: 0.9rem;
-  margin-top: 0rem; /* Reduced margin-top */
-  min-height: unset; /* Remove any min-height if present */
+  margin-top: 2rem;
+  border-top: 1px solid var(--ion-border-color, rgba(var(--ion-text-color-rgb), 0.1));
 }
 
 .home-footer .footer-content {
@@ -1122,12 +1122,14 @@
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  transition: color 0.2s ease;
-  padding: 0.5rem;
+  transition: all 0.2s ease;
+  padding: 0.75rem 1rem;
   border-radius: 8px;
-  background-color: #e9e9e9;
+  background-color: var(--ion-color-light);
+  color: var(--ion-text-color);
   min-width: 200px;
   justify-content: center;
+  box-shadow: 0 1px 3px rgba(var(--ion-text-color-rgb), 0.1);
 }
 
 .footer-contact .footer-link:hover {
@@ -1174,12 +1176,21 @@
 }
 
 /* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .footer-contact .footer-link {
-    background: rgba(255, 255, 255, 0.05);
-  }
-  
-  .footer-contact .footer-link:hover {
-    background: rgba(var(--ion-color-primary-rgb), 0.15);
-  }
+/* Theme-aware styles */
+.footer-contact .footer-link {
+  background: var(--ion-item-background);
+  border: 1px solid var(--ion-border-color, rgba(var(--ion-text-color-rgb), 0.1));
+}
+
+.footer-contact .footer-link:hover {
+  background: var(--ion-color-primary-tint);
+  color: var(--ion-color-primary-contrast);
+}
+
+.footer-contact .footer-link ion-icon {
+  color: var(--ion-text-color);
+}
+
+.footer-contact .footer-link:hover ion-icon {
+  color: var(--ion-color-primary-contrast);
 }

@@ -122,13 +122,6 @@ const Login: React.FC = () => {
 
   return (
     <IonPage className="login-page">
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/" text="" />
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
       <IonContent fullscreen className="login-content">
         <div className="login-header">
           <h1 className="login-page-title">{isRegister ? 'Create Account' : 'Welcome Back'}</h1>

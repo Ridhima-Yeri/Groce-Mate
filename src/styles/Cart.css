@@ -5,30 +5,7 @@
   padding: 0;
 }
 
-/* Cart header with title */
-.cart-header {
-  padding: 4rem 1rem 2rem !important;
-  margin: 0 auto 0.5rem !important;
-  width: 100% !important;
-  max-width: 800px !important;
-  box-sizing: border-box !important;
-  position: relative !important;
-  z-index: 10 !important;
-  margin-top: 1rem !important;
-}
-
-/* Show the cart title in content area */
-.cart-page .cart-title {
-  display: block !important;
-  font-size: 1.8rem !important;
-  font-weight: 700 !important;
-  color: var(--ion-text-color) !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  text-align: left !important;
-}
+/* Using common page-header styles from App.css */
 
 /* Clean container without card styling */
 .cart-container {

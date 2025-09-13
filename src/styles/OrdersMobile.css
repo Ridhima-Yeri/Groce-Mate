@@ -2,7 +2,41 @@
 
 /* Enhanced mobile styling */
 .orders-content {
-  padding-bottom: 16px;
+  --padding-bottom: 16px;
+  --padding-top: 0 !important;
+}
+
+/* Updated mobile header styles */
+@media (max-width: 768px) {
+  .page-header {
+  padding: calc(var(--ion-toolbar-height, 48px) + 1.25rem) 1rem 0.75rem !important; /* Ensure header is below toolbar */
+  }
+  
+  .page-title {
+    font-size: 1.75rem;
+  }
+  
+  .page-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .orders-container {
+    padding: 0 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header {
+    padding: calc(var(--ion-toolbar-height, 48px) + 1rem) 0.75rem 0.75rem !important;
+  }
+  
+  .page-title {
+    font-size: 1.5rem;
+  }
+  
+  .orders-container {
+    padding: 0 0.5rem;
+  }
 }
 
 /* Show the orders title in content area above orders list */

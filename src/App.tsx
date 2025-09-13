@@ -1,4 +1,4 @@
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, useLocation } from 'react-router-dom';
 import {
   IonApp,
   IonIcon,
@@ -15,10 +15,16 @@ import {
   IonContent as IonMenuContent,
   IonButtons,
   IonMenuButton,
-  IonBadge
+  IonBadge,
+  IonButton,
+  IonBackButton
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle, homeOutline, cartOutline, storefrontOutline } from 'ionicons/icons';
+import { useEffect } from 'react';
+import { initializePlatform } from './utils/platform';
+import './styles/platform.css';
+import './styles/ToolbarHeightFix.css';
 
 import Home from './pages/Home';
 import Products from './pages/Products';
@@ -69,6 +75,7 @@ import './styles/ThemeSupport.css';
 import './styles/IconFix.css';
 import './styles/TabBarFix.css';
 import './styles/MenuSmoothnessFix.css';
+import './styles/Footer.css';  // Add this line
 
 // Add custom style for focus management
 const style = document.createElement('style');
@@ -123,8 +130,15 @@ const TabBar: React.FC = () => {
   );
 };
 
-const App: React.FC = () => (
-  <CartProvider>
+const MainLayout: React.FC = () => {
+  const { getTotalItems } = useCart();
+  const location = useLocation();
+  
+  useEffect(() => {
+    initializePlatform();
+  }, []);
+
+  return (
     <IonApp>
       <SideMenu />
       {/* Main Content */}
@@ -136,8 +150,30 @@ const App: React.FC = () => (
       >
         <IonHeader>
           <IonToolbar className="app-toolbar">
+            <IonButtons slot="start">
+              {location.pathname !== '/' && location.pathname !== '/home' && (
+                <IonBackButton 
+                  defaultHref={location.pathname.includes('order-details') ? '/orders' : '/'} 
+                  text="" 
+                />
+              )}
+            </IonButtons>
             <IonTitle className="app-title">GroceMate</IonTitle>
             <IonButtons slot="end">
+              <IonButton routerLink="/cart" fill="clear">
+                <div style={{ position: 'relative' }}>
+                  <IonIcon icon={cartOutline} className="nav-icon" />
+                  {getTotalItems() > 0 && (
+                    <IonBadge 
+                      className="cart-badge" 
+                      data-count={getTotalItems()}
+                      data-count-length={getTotalItems().toString().length}
+                    >
+                      {getTotalItems() > 99 ? '99+' : getTotalItems()}
+                    </IonBadge>
+                  )}
+                </div>
+              </IonButton>
               <IonMenuButton 
                 aria-label="Menu"
                 className="smooth-menu-button"
@@ -145,26 +181,33 @@ const App: React.FC = () => (
             </IonButtons>
           </IonToolbar>
         </IonHeader>
-        <IonReactRouter>
-          <IonTabs>
-            <IonRouterOutlet>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/menu" component={Products} />
-              <Route exact path="/cart" component={Cart} />
-              <Route exact path="/checkout" component={Checkout} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/admin" component={AdminDashboard} />
-              <Route exact path="/orders" component={Orders} />
-              <Route exact path="/order-details/:orderId" component={OrderDetails} />
-              <Route exact path="/profile" component={Profile} />
-            </IonRouterOutlet>
-            <TabBar />
-          </IonTabs>
-        </IonReactRouter>
+        <IonTabs>
+          <IonRouterOutlet>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/menu" component={Products} />
+            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/checkout" component={Checkout} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/admin" component={AdminDashboard} />
+            <Route exact path="/orders" component={Orders} />
+            <Route exact path="/order-details/:orderId" component={OrderDetails} />
+            <Route exact path="/profile" component={Profile} />
+          </IonRouterOutlet>
+          <TabBar />
+        </IonTabs>
       </div>
     </IonApp>
-  </CartProvider>
-);
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <CartProvider>
+      <IonReactRouter>
+        <MainLayout />
+      </IonReactRouter>
+    </CartProvider>
+  );
+};
 
 export default App;
-

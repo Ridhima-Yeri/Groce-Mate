@@ -1,5 +1,6 @@
 .profile-content {
   --background: var(--ion-background-color);
+  --padding-top: 56px;
 }
 
 .profile-container {
@@ -22,14 +23,16 @@
 
 .profile-header {
   text-align: center;
-  padding: 4rem 1rem 1rem !important;
-  margin: 0 auto 0.5rem !important;
+  padding: 1rem !important;
+  margin: 0 auto !important;
   width: 100% !important;
   max-width: 800px !important;
   box-sizing: border-box !important;
   position: relative !important;
-  z-index: 10 !important;
-  margin-top: 1rem !important;
+  z-index: 1 !important;
+  background: var(--ion-card-background) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
 }
 
 .profile-avatar-container {
@@ -37,13 +40,25 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.profile-avatar {
+  width: 100px !important;
+  height: 100px !important;
+  border: 2px solid var(--ion-color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .profile-name {
   font-size: 1.5rem;
   font-weight: 600;
-  margin: 1rem 0 0.25rem;
+  margin: 0.25rem 0 0;
   color: var(--ion-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .profile-email {
@@ -435,10 +450,9 @@ ion-footer ion-toolbar {
 /* Responsive adjustments for mobile */
 @media (max-width: 600px) {
   .profile-header {
-    padding: 1.5rem 1rem 1rem !important;
+    padding: calc(var(--ion-toolbar-height, 56px) + 1.5rem) 1rem 1rem !important; /* Ensure header is below toolbar */
     margin-top: 0.5rem !important;
   }
-  
   .profile-page .profile-title {
     font-size: 1.4rem !important;
   }

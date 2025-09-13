@@ -1,28 +1,52 @@
 /* Admin Dashboard Styles */
 .admin-page {
   --background: var(--ion-background-color);
-  overflow-x: hidden;
+  background: var(--background);
 }
 
 .admin-dashboard-content {
   --background: var(--ion-background-color);
-  padding: 0;
-  overflow-x: hidden;
+  --padding-top: 0 !important;
 }
 
 .admin-dashboard-full {
+  padding: 0;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem;
-  overflow-x: hidden;
   width: 100%;
-  box-sizing: border-box;
+  padding-top: var(--ion-safe-area-top, 0);
 }
 
 .admin-dashboard-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--ion-text-color);
+}
+
+/* Updated Page Header styling */
+.page-header {
+  padding: calc(var(--ion-toolbar-height, 56px) + 1.5rem) 1.5rem 1rem !important; /* Ensure header is below toolbar */
+  background: var(--ion-background-color) !important;
+  border-bottom: 1px solid var(--ion-border-color) !important;
+  margin-bottom: 1.5rem !important;
+  position: relative !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ion-text-color);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.page-subtitle {
+  color: var(--ion-color-medium);
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
 }
 
 /* Tab Navigation */
@@ -715,19 +739,47 @@
   }
 }
 
-/* Hide scrollbars globally for admin dashboard */
-.admin-dashboard-content::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
+/* Reset and update header positioning */
+.admin-dashboard-content {
+  --background: var(--ion-background-color);
+  --padding-top: 0 !important;
 }
 
-.admin-dashboard-full::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
+.admin-dashboard-full {
+  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: var(--ion-safe-area-top, 0);
 }
 
-/* Ensure no horizontal overflow */
-.admin-dashboard-content,
+/* Fixed header with proper spacing */
+.page-header {
+ padding: calc(var(--ion-safe-area-top, 0) + 56px) 3rem;
+  padding: calc(var(--ion-toolbar-height, 56px) + 1.5rem) 1.5rem 1rem !important; /* Ensure header is below toolbar */
+  background: var(--ion-background-color);
+  border-bottom: 1px solid var(--ion-border-color);
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .page-header {
+    padding: calc(var(--ion-safe-area-top, 0) + 48px) 1rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header {
+    padding: calc(var(--ion-safe-area-top, 0) + 48px) 0.75rem 0.75rem;
+  }
+}
+
+/* ... existing code ... */
 .admin-dashboard-full,
 .admin-table,
 .admin-table table,
@@ -814,7 +866,7 @@
   background: transparent;
 }
 
-.admin-dashboard-full::-webkit-scrollbar {
+.admin-dashboard_full::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }
@@ -826,6 +878,18 @@
 .admin-table table,
 .admin-table tbody,
 .admin-table tr,
+.admin-table td {
+  overflow-x: hidden !important;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.admin-table tbody,
+.admin-table tr,
+.admin-table td {
+  overflow-x: hidden !important;
+  max-width: 100%;
+  box-sizing: border-box;
+}
 .admin-table td {
   overflow-x: hidden !important;
   max-width: 100%;

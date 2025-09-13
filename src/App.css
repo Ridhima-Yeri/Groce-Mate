@@ -1,4 +1,27 @@
-/* Main App Toolbar - Enhanced Theme Support */
+/* Main App/* Main App Title */
+.app-title {
+  font-size: 2.5rem !important;
+  font-family: inherit !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px !important;
+  color: var(--ion-toolbar-color) !important;
+  text-align: left !important;
+  padding: 0 12px !important;
+  margin: 0 !important;
+  height: 56px !important;
+  line-height: 56px !important;
+}
+
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 1.8rem !important;
+    padding: 0 8px !important;
+    height: 48px !important;
+    line-height: 48px !important;
+  }
+}
+
+/* Extended Theme Support */
 .app-toolbar {
   min-height: 56px !important;
   --background: var(--ion-toolbar-background) !important;
@@ -11,18 +34,23 @@
 
 /* Main App Title */
 .app-title {
-  font-size: 1.5rem !important;
+  font-size: 3rem !important;
   font-family: inherit !important;
   font-weight: 700 !important;
   letter-spacing: -0.5px !important;
   color: var(--ion-toolbar-title-color) !important;
   text-align: left !important;
-  margin-left: 0px !important;
-  margin-right: auto !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: block !important;
+  margin-left: 12px !important;
+  padding-left: 0 !important;
 }
+
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 2rem !important;
+    margin-left: 8px !important;
+  }
+}
+
 
 /* Menu Button Styling */
 ion-menu-button {

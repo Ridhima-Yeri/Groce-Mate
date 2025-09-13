@@ -4,11 +4,34 @@
 ion-toolbar {
   --background: var(--ion-toolbar-background) !important;
   --color: var(--ion-toolbar-color) !important;
+  --min-height: 56px !important;
   box-shadow: var(--ion-toolbar-box-shadow, 0 2px 6px rgba(0, 0, 0, 0.1)) !important;
 }
 
-ion-toolbar ion-title {
+ion-toolbar ion-title.app-title {
   color: var(--ion-toolbar-color) !important;
+  position: relative !important;
+  left: 0 !important;
+  top: 0 !important;
+  transform: none !important;
+  width: auto !important;
+  height: auto !important;
+  text-align: left !important;
+  font-size: 2.5rem !important;
+  line-height: 56px !important;
+  padding: 0 12px !important;
+}
+
+@media (max-width: 768px) {
+  ion-toolbar {
+    --min-height: 48px !important;
+  }
+  
+  ion-toolbar ion-title.app-title {
+    font-size: 1.8rem !important;
+    line-height: 48px !important;
+    padding: 0 8px !important;
+  }
 }
 
 ion-toolbar ion-back-button,

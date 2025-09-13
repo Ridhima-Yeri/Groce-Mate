@@ -1,6 +1,41 @@
 .orders-content {
   --background: var(--ion-background-color);
+  --padding-top: 0 !important;
   overflow-y: auto;
+}
+
+/* Updated Header and Content Styles */
+.page-header {
+  padding: calc(var(--ion-toolbar-height, 56px) + 1.5rem) 1.5rem 1rem !important; /* Ensure header is below toolbar */
+  background: var(--ion-background-color) !important;
+  border-bottom: 1px solid var(--ion-border-color) !important;
+  margin-bottom: 1.5rem !important;
+  position: relative !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ion-text-color);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.page-subtitle {
+  color: var(--ion-color-medium);
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+}
+
+.orders-container {
+  padding: 0 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Header and toolbar styling */
@@ -45,16 +80,6 @@ ion-header ion-title {
   text-align: center;
 }
 
-.orders-header {
-  padding: 4rem 1rem 1rem !important;
-  margin: 0 auto 0.5rem !important;
-  width: 100% !important;
-  max-width: 800px !important;
-  box-sizing: border-box !important;
-  position: relative !important;
-  z-index: 10 !important;
-  margin-top: 1rem !important;
-}
 
 /* Show the orders title in content area */
 .orders-page .orders-title {

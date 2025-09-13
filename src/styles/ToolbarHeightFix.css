@@ -1,0 +1,21 @@
+/* Fix for toolbar height and title alignment */
+.app-toolbar {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 56px !important;
+  max-height: 56px !important;
+  padding: 0 !important;
+}
+
+.app-toolbar ion-title {
+  flex: 1 !important;
+  padding: 0 !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .app-toolbar {
+    min-height: 48px !important;
+    max-height: 48px !important;
+  }
+}

@@ -8,18 +8,12 @@ const Cart: React.FC = () => {
 
   return (
     <IonPage className="cart-page">
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/" text="" />
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
       <IonContent fullscreen className="cart-content">
         {items.length === 0 ? (
           <div className="cart-container">
-            <div className="cart-header">
-              <h1 className="cart-title">Cart</h1>
+            <div className="page-header">
+              <h1 className="page-title">Shopping Cart</h1>
+              <p className="page-subtitle">Review your items</p>
             </div>
             <div className="cart-empty">
               <IonIcon icon={cartOutline} className="cart-empty-icon" />
@@ -31,8 +25,9 @@ const Cart: React.FC = () => {
           </div>
         ) : (
           <div className="cart-container cart-has-items">
-            <div className="cart-header">
-              <h1 className="cart-title">Cart</h1>
+            <div className="page-header">
+              <h1 className="page-title">Shopping Cart</h1>
+              <p className="page-subtitle">Review your items</p>
             </div>
             <div className="cart-items">
               {items.map(item => (

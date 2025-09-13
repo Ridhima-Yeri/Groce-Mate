@@ -543,16 +543,13 @@ const AdminDashboard: React.FC = () => {
 
   return (
     <IonPage className="admin-page">
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/" text="" />
-          </IonButtons>
-          <IonLabel className="admin-dashboard-title">Admin Dashboard</IonLabel>
-        </IonToolbar>
-      </IonHeader>
       <IonContent fullscreen className="admin-dashboard-content">
         <div className="admin-dashboard-full">
+          <div className="page-header">
+            <h1 className="page-title">Admin Dashboard</h1>
+            <p className="page-subtitle">Manage your store's content</p>
+          </div>
+          
           <IonToast
             isOpen={notification.show}
             onDidDismiss={() => setNotification({ ...notification, show: false })}

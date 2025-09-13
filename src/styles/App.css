@@ -11,6 +11,46 @@
   font-weight: 600;
 }
 
+/* Common Page Header Styles */
+.page-header {
+  padding: calc(var(--ion-toolbar-height, 56px) + 1.5rem) 1.5rem 1rem !important; /* Ensure header is below toolbar */
+  background: var(--ion-background-color);
+  position: relative;
+  z-index: 1;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ion-text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.page-subtitle {
+  font-size: 1rem;
+  color: var(--ion-color-medium);
+  margin: 0.5rem 0 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .page-header {
+    padding: 1rem 1rem 0.75rem;
+  }
+  
+  .page-title {
+    font-size: 1.75rem;
+  }
+  
+  .page-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
 /* Tab bar styling */
 .tab-bar-custom {
   --background: var(--ion-tab-bar-background);

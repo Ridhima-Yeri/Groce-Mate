@@ -1,0 +1,120 @@
+/* iOS specific styles */
+.ios {
+  --ion-toolbar-height: 56px;
+  --ion-safe-area-top: env(safe-area-inset-top);
+  --ion-safe-area-bottom: env(safe-area-inset-bottom);
+  
+  /* iOS specific font */
+  --ion-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif;
+}
+
+.ios ion-toolbar {
+  padding-top: var(--ion-safe-area-top, 0);
+  padding-bottom: 4px;
+}
+
+.ios ion-content {
+  --padding-bottom: var(--ion-safe-area-bottom, 0);
+}
+
+/* Android specific styles */
+.md {
+  --ion-toolbar-height: 56px;
+  --ion-safe-area-top: 24px;
+  
+  /* Android specific font */
+  --ion-font-family: "Roboto", "Helvetica Neue", sans-serif;
+}
+
+.md ion-toolbar {
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+
+/* Common touch feedback styles */
+@media (hover: none) {
+  .ion-activatable {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ion-activatable::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--ion-color-primary);
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+    pointer-events: none;
+  }
+
+  .ion-activatable:active::after {
+    opacity: 0.12;
+  }
+}
+
+/* Platform-specific animations */
+.ios .fade-enter {
+  animation: ios-fade-in 0.4s cubic-bezier(0.36, 0.66, 0.04, 1);
+}
+
+.md .fade-enter {
+  animation: md-fade-in 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes ios-fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes md-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Handle safe areas for notched devices */
+.safe-area-padding {
+  padding-top: var(--ion-safe-area-top);
+  padding-bottom: var(--ion-safe-area-bottom);
+  padding-left: var(--ion-safe-area-left);
+  padding-right: var(--ion-safe-area-right);
+}
+
+/* Platform-specific list styles */
+.ios ion-list {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  --ion-item-background: var(--ion-color-light);
+}
+
+.md ion-list {
+  padding: 8px 0;
+  --ion-item-background: var(--ion-color-white);
+}
+
+/* Platform-specific button styles */
+.ios ion-button {
+  --border-radius: 10px;
+  margin: 4px 0;
+}
+
+.md ion-button {
+  --border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Platform-specific card styles */
+.ios ion-card {
+  border-radius: 10px;
+  margin: 12px;
+}
+
+.md ion-card {
+  border-radius: 4px;
+  margin: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
