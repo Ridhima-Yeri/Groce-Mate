@@ -158,9 +158,7 @@ const Products: React.FC = () => {
   return (
     <IonPage className="products-page">
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>Products</IonTitle>
-        </IonToolbar>
+        {/* Toolbar removed as requested */}
       </IonHeader>
       <IonContent fullscreen className="products-content">
         {loading ? (

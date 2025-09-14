@@ -160,20 +160,7 @@ const MainLayout: React.FC = () => {
             </IonButtons>
             <IonTitle className="app-title">GroceMate</IonTitle>
             <IonButtons slot="end">
-              <IonButton routerLink="/cart" fill="clear">
-                <div style={{ position: 'relative' }}>
-                  <IonIcon icon={cartOutline} className="nav-icon" />
-                  {getTotalItems() > 0 && (
-                    <IonBadge 
-                      className="cart-badge" 
-                      data-count={getTotalItems()}
-                      data-count-length={getTotalItems().toString().length}
-                    >
-                      {getTotalItems() > 99 ? '99+' : getTotalItems()}
-                    </IonBadge>
-                  )}
-                </div>
-              </IonButton>
+              {/* Cart button removed as requested */}
               <IonMenuButton 
                 aria-label="Menu"
                 className="smooth-menu-button"
