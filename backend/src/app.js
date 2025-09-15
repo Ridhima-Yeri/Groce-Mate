@@ -34,10 +34,10 @@ app.get('/api/categories', async (req, res) => {
     const { default: Category } = await import('./models/Category.js');
     const categories = await Category.find().select('name');
     console.log('Categories found:', categories.length);
-    res.json(categories);
+    res.json({ error: false, data: categories }); // <-- Updated format
   } catch (error) {
     console.error('Error fetching categories:', error);
-    res.status(500).json({ message: 'Failed to fetch categories' });
+    res.status(500).json({ error: true, message: 'Failed to fetch categories' });
   }
 });
 

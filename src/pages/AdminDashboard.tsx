@@ -10,7 +10,7 @@ import {
   formatOrdersForAdmin 
 } from '../utils/mockOrdersApi';
 
-const API_BASE = 'http://localhost:5000/api/admin';
+const API_BASE = 'https://grocemate-bckend.onrender.com/api/admin';
 
 function getToken() {
   return localStorage.getItem('token');
