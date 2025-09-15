@@ -6,10 +6,8 @@ const router = express.Router();
 // Get all products (public route)
 router.get('/', async (req, res) => {
   try {
-    const products = await Product.find()
-      .populate('category')
-      .select('name price image category featured');
-    res.json(products);
+    const products = await Product.find().populate('category');
+    res.json({ data: products }); // <-- wrap in { data: ... }
   } catch (error) {
     console.error('Error fetching products:', error);
     res.status(500).json({ message: 'Failed to fetch products' });

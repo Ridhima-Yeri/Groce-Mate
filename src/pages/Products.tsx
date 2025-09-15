@@ -61,14 +61,11 @@ const Products: React.FC = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        // Fetch products and categories in parallel
-        const [productsRes, categoriesResponse] = await Promise.all([
-          fetch('https://grocemate-bckend.onrender.com/api/products'),
+        // Use getProducts() for consistent API response
+        const [productsResponse, categoriesResponse] = await Promise.all([
+          getProducts(),
           getCategories()
         ]);
-
-        // Parse the products response as JSON
-        const productsResponse = await productsRes.json();
 
         if (productsResponse.error) {
           setError(productsResponse.message);
