@@ -62,7 +62,7 @@ const Products: React.FC = () => {
       setLoading(true);
       try {
         const [productsResponse, categoriesResponse] = await Promise.all([
-          getProducts(),
+          fetch('https://grocemate-bckend.onrender.com/api/products'),
           getCategories()
         ]);
         

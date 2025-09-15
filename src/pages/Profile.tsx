@@ -104,7 +104,8 @@ const Profile: React.FC = () => {
   
   // Define simple setters for modal state instead of having multiple close functions
 
-  const serverUrl = 'http://localhost:5000'; // Update this with your actual server URL
+  const serverUrl = 'https://grocemate-bckend.onrender.com';
+  // const serverUrl = 'http://localhost:5000'; // Update this with your actual server URL
 
   // Create refs for focus management
   const modalCloseRef = useRef<HTMLIonButtonElement>(null);

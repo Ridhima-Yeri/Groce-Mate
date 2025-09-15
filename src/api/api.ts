@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://grocemate-bckend.onrender.com/api';
 
 // Extend the Window interface to include ENV_API_URL
 declare global {
@@ -8,9 +8,7 @@ declare global {
 }
 
 // Fix the process not defined error
-const API_URL = typeof window !== 'undefined' && window.ENV_API_URL 
-  ? window.ENV_API_URL 
-  : 'http://localhost:5000/api';
+const API_URL = window.ENV_API_URL || 'http://localhost:5000/api';
 
 // Helper function to check server connection
 const checkServerConnection = async () => {

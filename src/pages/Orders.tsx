@@ -86,11 +86,20 @@ const Orders: React.FC = () => {
       //   return;
       // }
 
-      const response = await getUserOrders();
+      const response = await fetch('https://grocemate-bckend.onrender.com/api/orders', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          // Include authorization header if needed
+          // 'Authorization': `Bearer ${token}`
+        }
+      });
       
-      if (response.success) {
+      const data = await response.json();
+
+      if (response.ok) {
         // Map the order data to match our interface
-        const mappedOrders = response.data.map((order: any) => ({
+        const mappedOrders = data.data.map((order: any) => ({
           _id: order.orderNumber || order._id || `order_${Date.now()}`,
           orderNumber: order.orderNumber,
           createdAt: order.createdAt,
@@ -114,7 +123,7 @@ const Orders: React.FC = () => {
         
         setOrders(mappedOrders || []);
       } else {
-        setError(response.message || 'Failed to fetch orders');
+        setError(data.message || 'Failed to fetch orders');
       }
     } catch (err) {
       console.error('Error fetching orders:', err);
