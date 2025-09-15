@@ -61,11 +61,15 @@ const Products: React.FC = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const [productsResponse, categoriesResponse] = await Promise.all([
+        // Fetch products and categories in parallel
+        const [productsRes, categoriesResponse] = await Promise.all([
           fetch('https://grocemate-bckend.onrender.com/api/products'),
           getCategories()
         ]);
-        
+
+        // Parse the products response as JSON
+        const productsResponse = await productsRes.json();
+
         if (productsResponse.error) {
           setError(productsResponse.message);
           setAllProducts([]);
@@ -76,7 +80,7 @@ const Products: React.FC = () => {
           setFilteredProducts(products);
           setError(null);
         }
-        
+
         if (!categoriesResponse.error) {
           setCategories(categoriesResponse.data || []);
         }
