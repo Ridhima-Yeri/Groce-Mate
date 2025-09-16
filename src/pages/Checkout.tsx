@@ -129,7 +129,7 @@ const Checkout: React.FC = () => {
           _id: item._id,
           name: item.name,
           quantity: item.quantity,
-          price: item.price,
+          price: Number(item.price), // Ensure price is a number
           image: item.image
         })),
         deliveryAddress: {
@@ -140,14 +140,13 @@ const Checkout: React.FC = () => {
         },
         paymentMethod: paymentMethod === 'cod' ? 'Cash on Delivery' : 'Online Payment',
         orderNotes: orderNotes,
-        subtotal: subtotal,
-        deliveryFee: deliveryFee,
-        total: total,
+        subtotal: Number(subtotal),
+        deliveryFee: Number(deliveryFee),
+        total: Number(total),
         status: 'Processing',
         deliveryStatus: 'processing',
         createdAt: new Date().toISOString(),
-        estimatedDelivery: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
-        // user: { name: deliveryAddress.fullName, email: deliveryAddress.email }
+        estimatedDelivery: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString()
       };
 
       // Send order to backend
@@ -165,10 +164,6 @@ const Checkout: React.FC = () => {
         const data = await response.json();
         throw new Error(data.message || 'Failed to place order');
       }
-
-      // Optionally, you can get the order number from backend response
-      // const data = await response.json();
-      // setOrderNumber(data.order.orderNumber);
 
       // Clear cart
       clearCart();
@@ -451,6 +446,11 @@ const Checkout: React.FC = () => {
           </div>
         </IonModal>
       </IonContent>
+    </IonPage>
+  );
+};
+
+export default Checkout;
     </IonPage>
   );
 };
