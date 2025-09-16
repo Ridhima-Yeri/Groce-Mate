@@ -55,6 +55,48 @@ app.get('/api/orders', authenticate, async (req, res) => {
   }
 });
 
+// Public route: Place a new order
+app.post('/api/orders', authenticate, async (req, res) => {
+  try {
+    const {
+      items,
+      total,
+      deliveryAddress,
+      paymentMethod,
+      orderNotes,
+      estimatedDelivery
+    } = req.body;
+
+    if (!items || !Array.isArray(items) || items.length === 0) {
+      return res.status(400).json({ message: 'Order items are required' });
+    }
+    if (!total) {
+      return res.status(400).json({ message: 'Order total is required' });
+    }
+
+    // Generate a unique order number
+    const orderNumber = `ORD${Date.now()}`;
+
+    const order = await Order.create({
+      user: req.user._id,
+      orderNumber,
+      items,
+      total,
+      deliveryAddress,
+      paymentMethod,
+      orderNotes,
+      estimatedDelivery,
+      status: 'Processing',
+      deliveryStatus: 'processing'
+    });
+
+    res.status(201).json({ message: 'Order placed successfully', order });
+  } catch (error) {
+    console.error('Error placing order:', error);
+    res.status(500).json({ message: 'Failed to place order' });
+  }
+});
+
 // API routes
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);

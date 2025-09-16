@@ -122,11 +122,9 @@ const Checkout: React.FC = () => {
       // Generate order number first
       const generatedOrderNumber = `ORD${Date.now()}`;
       setOrderNumber(generatedOrderNumber);
-      
+
       // Create order object
       const order = {
-        _id: `order_${Date.now()}`,
-        orderNumber: generatedOrderNumber,
         items: items.map(item => ({
           _id: item._id,
           name: item.name,
@@ -149,28 +147,38 @@ const Checkout: React.FC = () => {
         deliveryStatus: 'processing',
         createdAt: new Date().toISOString(),
         estimatedDelivery: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
-        user: {
-          name: deliveryAddress.fullName,
-          email: deliveryAddress.email
-        }
+        // user: { name: deliveryAddress.fullName, email: deliveryAddress.email }
       };
-      
-      // Save order to localStorage
-      const existingOrders = JSON.parse(localStorage.getItem('orders') || '[]');
-      existingOrders.unshift(order);
-      localStorage.setItem('orders', JSON.stringify(existingOrders));
-      
+
+      // Send order to backend
+      const token = localStorage.getItem('token');
+      const response = await fetch('https://grocemate-bckend.onrender.com/api/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(order)
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.message || 'Failed to place order');
+      }
+
+      // Optionally, you can get the order number from backend response
+      // const data = await response.json();
+      // setOrderNumber(data.order.orderNumber);
+
       // Clear cart
       clearCart();
-      
-      // Stop loading first
+
       setIsLoading(false);
-      
-      // Force a small delay then show modal
+
       setTimeout(() => {
         setShowSuccessModal(true);
       }, 200);
-      
+
     } catch (error) {
       console.error('Error placing order:', error);
       showError('Failed to place order. Please try again.');
