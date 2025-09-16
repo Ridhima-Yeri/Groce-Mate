@@ -9,7 +9,9 @@ import adminRoutes from './routes/admin.js';
 import userRoutes from './routes/users.js';
 import productRoutes from './routes/products.js';
 import User from './models/User.js';
+import Order from './models/Order.js';
 import bcrypt from 'bcryptjs';
+import { authenticate } from './middleware/auth.js';
 
 dotenv.config();
 
@@ -38,6 +40,18 @@ app.get('/api/categories', async (req, res) => {
   } catch (error) {
     console.error('Error fetching categories:', error);
     res.status(500).json({ message: 'Failed to fetch categories' });
+  }
+});
+
+// Public route: Get orders for logged-in user
+app.get('/api/orders', authenticate, async (req, res) => {
+  try {
+    // Find orders for the logged-in user
+    const orders = await Order.find({ user: req.user._id })
+      .sort({ createdAt: -1 });
+    res.json({ data: orders });
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to fetch orders' });
   }
 });
 

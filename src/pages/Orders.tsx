@@ -81,17 +81,11 @@ const Orders: React.FC = () => {
       
       // Remove token check since we're using localStorage
       // const token = localStorage.getItem('token');
-      // if (!token) {
-      //   history.push('/login');
-      //   return;
-      // }
-
       const response = await fetch('https://grocemate-bckend.onrender.com/api/orders', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          // Include authorization header if needed
-          // 'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${token}` // <-- Add this line
         }
       });
       
