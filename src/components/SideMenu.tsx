@@ -22,21 +22,21 @@ const SideMenu: React.FC = () => {
     const checkAuth = () => {
       const token = localStorage.getItem('token');
       setIsAuthenticated(!!token);
-      
       // Get user role if authenticated
       if (token) {
         const user = JSON.parse(localStorage.getItem('user') || '{}');
         setUserRole(user.role || null);
+      } else {
+        setUserRole(null);
       }
     };
-    
     checkAuth();
-    
-    // Set up event listener for storage changes
+    // Listen for storage changes (other tabs) and custom authChanged event (same tab)
     window.addEventListener('storage', checkAuth);
-    
+    window.addEventListener('authChanged', checkAuth);
     return () => {
       window.removeEventListener('storage', checkAuth);
+      window.removeEventListener('authChanged', checkAuth);
     };
   }, []);
   
@@ -45,6 +45,8 @@ const SideMenu: React.FC = () => {
     localStorage.removeItem('user');
     setIsAuthenticated(false);
     setUserRole(null);
+    // Dispatch custom event for same-tab menu update
+    window.dispatchEvent(new Event('authChanged'));
     window.location.href = '/';
   };
 

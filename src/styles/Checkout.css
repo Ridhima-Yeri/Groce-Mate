@@ -1,3 +1,8 @@
+/* Toast notification below toolbar */
+.toast-below-toolbar {
+  --offset-top: 56px !important;
+  top: var(--offset-top, 56px) !important;
+}
 /* Checkout Page - Clean Minimal Design */
 .checkout-content {
   --background: var(--ion-background-color);

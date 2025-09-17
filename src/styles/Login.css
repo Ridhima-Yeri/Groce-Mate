@@ -1,3 +1,8 @@
+/* Toast notification below toolbar */
+.toast-below-toolbar {
+  --offset-top: 56px !important;
+  top: var(--offset-top, 56px) !important;
+}
 .login-content {
   --background: var(--ion-background-color);
   background: var(--background);
@@ -7,29 +12,8 @@
 }
 
 /* Add login header styling similar to other pages */
-.login-header {
-  padding: 4rem 1rem 1rem !important;
-  margin: 0 auto 0.5rem !important;
-  width: 100% !important;
-  max-width: 600px !important;
-  box-sizing: border-box !important;
-  position: relative !important;
-  z-index: 10 !important;
-  margin-top: 1rem !important;
-}
 
-/* Show the login title in content area */
-.login-page .login-page-title {
-  display: block !important;
-  font-size: 1.8rem !important;
-  font-weight: 700 !important;
-  color: var(--ion-text-color) !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  text-align: left !important;
-}
+
 
 .login-center {
   display: flex;
@@ -147,14 +131,12 @@
 /* Responsive adjustments for mobile */
 @media (max-width: 600px) {
   .login-header {
-    padding: 1.5rem 1rem 1rem !important;
-    margin-top: 0.5rem !important;
+    margin-top: 2.2rem;
+    padding: 0 1rem 0.5rem 1rem;
   }
-  
   .login-page .login-page-title {
-    font-size: 1.4rem !important;
+    font-size: 1.3rem;
   }
-  
   .login-center {
     max-width: 98vw;
     padding: 1rem;

@@ -1,3 +1,8 @@
+/* Toast notification below toolbar */
+.toast-below-toolbar {
+  --offset-top: 56px !important;
+  top: var(--offset-top, 56px) !important;
+}
 .menu-content {
   --background: #f9fafb;
   background: var(--background);

@@ -85,6 +85,8 @@ const Login: React.FC = () => {
           if (res.user) {
             localStorage.setItem('user', JSON.stringify(res.user));
           }
+          // Dispatch custom event for same-tab menu update
+          window.dispatchEvent(new Event('authChanged'));
           if (res.user?.role === 'admin') {
             history.push('/admin');
           } else {
@@ -104,6 +106,8 @@ const Login: React.FC = () => {
           if (res.user) {
             localStorage.setItem('user', JSON.stringify(res.user));
           }
+          // Dispatch custom event for same-tab menu update
+          window.dispatchEvent(new Event('authChanged'));
           if (res.user?.role === 'admin') {
             history.push('/admin');
           } else {
@@ -122,11 +126,11 @@ const Login: React.FC = () => {
 
   return (
     <IonPage className="login-page">
+      {/* No IonHeader or toolbar, only in-content header as per user request */}
       <IonContent fullscreen className="login-content">
-        <div className="login-header">
-          <h1 className="login-page-title">{isRegister ? 'Create Account' : 'Welcome Back'}</h1>
+        <div className="page-header">
+          <h1 className="page-title">{isRegister ? 'Create Account' : 'Welcome Back'}</h1>
         </div>
-        
         <div className="login-center">
           {isOffline && (
             <IonChip color="warning" className="offline-warning">
@@ -195,6 +199,8 @@ const Login: React.FC = () => {
           message={toastMessage}
           duration={2000}
           color="warning"
+          position="top"
+          cssClass="toast-below-toolbar"
         />
       </IonContent>
     </IonPage>

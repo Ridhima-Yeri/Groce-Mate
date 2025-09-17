@@ -418,6 +418,7 @@ const Checkout: React.FC = () => {
           message={toastMessage}
           duration={3000}
           position="top"
+          cssClass="toast-below-toolbar"
         />
         
         {/* Order Success Modal - simplified and forced visibility */}
@@ -451,8 +452,4 @@ const Checkout: React.FC = () => {
 };
 
 export default Checkout;
-    </IonPage>
-  );
-};
 
-export default Checkout;

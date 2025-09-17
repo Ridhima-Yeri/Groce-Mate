@@ -279,6 +279,14 @@ const Products: React.FC = () => {
                       <div className="product-name">{product.name}</div>
                       <div className="product-price">₹{product.price}</div>
                       <div className="product-category">{product.category?.name}</div>
+                      <button
+                        className="product-add-btn"
+                        type="button"
+                        aria-label={`Add ${product.name} to cart`}
+                        onClick={() => handleAddToCart(product)}
+                      >
+                        Add to Cart
+                      </button>
                     </div>
                   </div>
                 ))
@@ -304,6 +312,7 @@ const Products: React.FC = () => {
           duration={2000}
           position="top"
           color="success"
+          cssClass="toast-below-toolbar"
           buttons={[
             {
               text: 'Dismiss',

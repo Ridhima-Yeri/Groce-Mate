@@ -35,6 +35,7 @@ import Orders from './pages/Orders';
 import OrderDetails from './pages/OrderDetails';
 import Profile from './pages/Profile';
 import SideMenu from './components/SideMenu';
+import { useState } from 'react';
 import { CartProvider, useCart } from './contexts/CartContext';
 import Checkout from './pages/Checkout';
 
@@ -133,14 +134,21 @@ const TabBar: React.FC = () => {
 const MainLayout: React.FC = () => {
   const { getTotalItems } = useCart();
   const location = useLocation();
-  
+  const [authVersion, setAuthVersion] = useState(0);
+
   useEffect(() => {
     initializePlatform();
+    // Listen for authChanged event to force SideMenu re-mount
+    const handleAuthChanged = () => setAuthVersion(v => v + 1);
+    window.addEventListener('authChanged', handleAuthChanged);
+    return () => {
+      window.removeEventListener('authChanged', handleAuthChanged);
+    };
   }, []);
 
   return (
     <IonApp>
-      <SideMenu />
+      <SideMenu key={authVersion} />
       {/* Main Content */}
       <div 
         className="ion-page" 
