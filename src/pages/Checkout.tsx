@@ -184,14 +184,6 @@ const Checkout: React.FC = () => {
   if (items.length === 0) {
     return (
       <IonPage className="checkout-page">
-        <IonHeader>
-          <IonToolbar>
-            <IonButtons slot="start">
-              <IonBackButton defaultHref="/cart" />
-            </IonButtons>
-            <IonTitle>Checkout</IonTitle>
-          </IonToolbar>
-        </IonHeader>
         <IonContent className="checkout-content">
           <div className="checkout-empty">
             <IonIcon icon={checkmarkCircleOutline} />
@@ -208,15 +200,10 @@ const Checkout: React.FC = () => {
   
   return (
     <IonPage className="checkout-page">
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/cart" />
-          </IonButtons>
-          <IonTitle>Checkout</IonTitle>
-        </IonToolbar>
-      </IonHeader>
       <IonContent className="checkout-content">
+        <div className="page-header">
+          <h1 className="page-title">Checkout</h1>
+        </div>
         <div className="checkout-container">
           
           {/* Order Summary */}
