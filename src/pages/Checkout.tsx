@@ -66,8 +66,7 @@ const Checkout: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
-  // Add new state for success modal
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showGoToOrders, setShowGoToOrders] = useState(false);
   const [orderNumber, setOrderNumber] = useState('');
   
   // Calculate totals
@@ -108,7 +107,8 @@ const Checkout: React.FC = () => {
   
   // Navigate to orders page
   const goToOrders = () => {
-    setShowSuccessModal(false);
+    setShowToast(false);
+    setShowGoToOrders(false);
     history.push('/orders');
   };
   
@@ -171,7 +171,9 @@ const Checkout: React.FC = () => {
       setIsLoading(false);
 
       setTimeout(() => {
-        setShowSuccessModal(true);
+        setToastMessage('Order placed successfully!');
+        setShowToast(true);
+        setShowGoToOrders(true);
       }, 200);
 
     } catch (error) {
@@ -185,6 +187,9 @@ const Checkout: React.FC = () => {
     return (
       <IonPage className="checkout-page">
         <IonContent className="checkout-content">
+          <div className="page-header">
+            <h1 className="page-title">Checkout</h1>
+          </div>
           <div className="checkout-empty">
             <IonIcon icon={checkmarkCircleOutline} />
             <h3>No items to checkout</h3>
@@ -306,9 +311,7 @@ const Checkout: React.FC = () => {
                     Street Address
                   </label>
                   <input
-                    id="address1"
                     className="simple-form-input"
-                    type="text"
                     value={deliveryAddress.addressLine1}
                     onChange={e => handleAddressChange('addressLine1', e.target.value)}
                     placeholder="House no, Building, Street name"
@@ -402,37 +405,18 @@ const Checkout: React.FC = () => {
         <IonToast
           isOpen={showToast}
           onDidDismiss={() => setShowToast(false)}
-          message={toastMessage}
-          duration={3000}
+          duration={showGoToOrders ? 0 : 4000}
           position="top"
-          cssClass="toast-below-toolbar"
-        />
-        
-        {/* Order Success Modal - simplified and forced visibility */}
-        <IonModal 
-          isOpen={showSuccessModal}
-          backdropDismiss={false}
-          className="order-success-modal"
         >
-          <div className="order-success-content">
-            <div className="success-icon">
-              <IonIcon icon={bagCheckOutline} />
-            </div>
-            <h2>Order Placed Successfully!</h2>
-            <p className="order-number">Order #{orderNumber}</p>
-            <p className="success-message">
-              Thank you for your order. We've received your order and will begin processing it soon.
-            </p>
-            <IonButton 
-              expand="block"
-              className="view-orders-btn"
-              onClick={goToOrders}
-            >
-              <span>View My Orders</span>
-              <IonIcon icon={arrowForward} slot="end" />
-            </IonButton>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <span>{toastMessage}</span>
+            {showGoToOrders && (
+              <IonButton size="small" color="primary" style={{ marginTop: 8 }} onClick={goToOrders}>
+                Go to Orders
+              </IonButton>
+            )}
           </div>
-        </IonModal>
+        </IonToast>
       </IonContent>
     </IonPage>
   );

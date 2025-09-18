@@ -31,13 +31,22 @@ interface OrderItem {
   price: string;
 }
 
+interface DeliveryAddress {
+  addressLine1: string;
+  addressLine2?: string;
+  city: string;
+  state: string;
+  pincode: string;
+  phone?: string;
+}
+
 interface OrderDetails {
   id: string;
   date: string;
   total: string;
   status: string;
   items: OrderItem[];
-  deliveryAddress?: string;
+  deliveryAddress?: DeliveryAddress;
   paymentMethod?: string;
   phoneNumber?: string;
   orderNotes?: string;
@@ -92,15 +101,12 @@ const OrderDetailsPage: React.FC = () => {
   };
 
   // Fetch order details on component mount
+  const [notFound, setNotFound] = useState(false);
   useEffect(() => {
     const fetchOrderDetails = () => {
       try {
-        // Get orders from localStorage
         const orders = JSON.parse(localStorage.getItem('orders') || '[]');
-        
-        // Find the order with matching ID
         const matchedOrder = orders.find((o: any) => o.orderNumber === orderId || o._id === orderId);
-        
         if (matchedOrder) {
           setOrder({
             id: matchedOrder.orderNumber,
@@ -112,22 +118,18 @@ const OrderDetailsPage: React.FC = () => {
               quantity: item.quantity,
               price: `₹${item.price.toFixed(2)}`
             })),
-            deliveryAddress: matchedOrder.deliveryAddress ? 
-              `${matchedOrder.deliveryAddress.addressLine1}, ${matchedOrder.deliveryAddress.addressLine2 ? matchedOrder.deliveryAddress.addressLine2 + ', ' : ''}${matchedOrder.deliveryAddress.city}, ${matchedOrder.deliveryAddress.state} ${matchedOrder.deliveryAddress.pincode}` : 
-              undefined,
+            deliveryAddress: matchedOrder.deliveryAddress ? { ...matchedOrder.deliveryAddress } : undefined,
             paymentMethod: matchedOrder.paymentMethod,
             phoneNumber: matchedOrder.deliveryAddress?.phone,
             orderNotes: matchedOrder.orderNotes
           });
         } else {
-          console.error('Order not found');
-          history.push('/orders');
+          setNotFound(true);
         }
       } catch (error) {
-        console.error('Error fetching order details:', error);
+        setNotFound(true);
       }
     };
-
     fetchOrderDetails();
   }, [orderId, history]);
 
@@ -211,7 +213,7 @@ const OrderDetailsPage: React.FC = () => {
   };
 
   // If order is still loading, show a loading message
-  if (!order) {
+  if (notFound) {
     return (
       <IonPage className="order-details-page admin-page">
         <IonHeader>
@@ -223,17 +225,18 @@ const OrderDetailsPage: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent className="admin-dashboard-content" color="background">
-          <div className="admin-dashboard-full">
-            <div className="loading-container">
-              <div className="admin-form">
-                <p>Loading order details...</p>
-              </div>
+          <div className="admin-dashboard-full" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '60vh' }}>
+            <div style={{ textAlign: 'center' }}>
+              <h2 style={{ color: '#ff5252', marginBottom: 12 }}>Order Not Found</h2>
+              <p style={{ color: '#ccc' }}>We couldn't find the details for this order. It may have been removed or is unavailable.</p>
+              <IonButton routerLink="/orders" color="primary" style={{ marginTop: 24 }}>Back to Orders</IonButton>
             </div>
           </div>
         </IonContent>
       </IonPage>
     );
   }
+  if (!order) return null;
 
   return (
     <IonPage className="order-details-page admin-page">
@@ -373,7 +376,11 @@ const OrderDetailsPage: React.FC = () => {
                       <tbody>
                         <tr>
                           <td className="minimal-label">Address</td>
-                          <td className="minimal-value">{order.deliveryAddress}</td>
+                          <td className="minimal-value">
+                            {order.deliveryAddress.addressLine1}
+                            {order.deliveryAddress.addressLine2 && (<>, {order.deliveryAddress.addressLine2}</>)}<br />
+                            {order.deliveryAddress.city}, {order.deliveryAddress.state} {order.deliveryAddress.pincode}
+                          </td>
                         </tr>
                         {order.phoneNumber && (
                           <tr>
@@ -455,8 +462,7 @@ const OrderDetailsPage: React.FC = () => {
 
         </div>
       </IonContent>
-    </IonPage>
-  );
-};
-
+      </IonPage>
+    );
+}
 export default OrderDetailsPage;

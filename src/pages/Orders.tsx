@@ -107,16 +107,15 @@ const Orders: React.FC = () => {
             price: item.price,
             image: item.image
           })),
-          deliveryAddress: order.deliveryAddress ? 
-            `${order.deliveryAddress.addressLine1}, ${order.deliveryAddress.addressLine2 ? order.deliveryAddress.addressLine2 + ', ' : ''}${order.deliveryAddress.city}, ${order.deliveryAddress.state} ${order.deliveryAddress.pincode}` : 
-            undefined,
+          deliveryAddress: order.deliveryAddress ? { ...order.deliveryAddress } : undefined,
           paymentMethod: order.paymentMethod,
           phoneNumber: order.deliveryAddress?.phone,
           estimatedDelivery: order.estimatedDelivery,
           orderNotes: order.orderNotes
         }));
-        
         setOrders(mappedOrders || []);
+        // Save to localStorage for OrderDetails page
+        localStorage.setItem('orders', JSON.stringify(mappedOrders || []));
       } else {
         setError(data.message || 'Failed to fetch orders');
       }
