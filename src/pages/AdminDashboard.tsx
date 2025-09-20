@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { IonContent, IonPage, IonButton, IonInput, IonItem, IonLabel, IonSpinner, IonHeader, IonToolbar, IonButtons, IonBackButton, IonToast, IonIcon, IonModal, IonList, IonGrid, IonRow, IonCol, IonTitle } from '@ionic/react';
+import { IonContent, IonPage, IonButton, IonInput, IonItem, IonLabel, IonSpinner, IonHeader, IonToolbar, IonButtons, IonBackButton, IonToast, IonIcon, IonList, IonGrid, IonRow, IonCol, IonTitle } from '@ionic/react';
 import { pencilOutline, trashOutline, closeCircleOutline, eyeOutline } from 'ionicons/icons';
+import { useHistory } from 'react-router-dom';
 import '../styles/AdminDashboard.css';
 import '../styles/AdminDashboardMobile.css';
 import { 
@@ -11,6 +12,10 @@ import {
 } from '../utils/mockOrdersApi';
 
 const API_BASE = 'https://grocemate-bckend.onrender.com/api/admin';
+
+// ...existing code...
+
+
 
 function getToken() {
   return localStorage.getItem('token');
@@ -84,7 +89,7 @@ async function apiDelete(path: string) {
   }
 }
 
-const AdminDashboard: React.FC = () => {
+export const AdminDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'users' | 'categories' | 'products' | 'orders'>('users');
   const [users, setUsers] = useState<any[]>([]);
   const [categories, setCategories] = useState<any[]>([]);
@@ -980,7 +985,7 @@ const AdminDashboard: React.FC = () => {
                               <div className="table-action-buttons">
                                 <button 
                                   className="simple-table-btn view-icon" 
-                                  onClick={() => showOrderItems(order)}
+                                  onClick={() => window.location.href = `/admin-order-details/${order.orderNumber || order._id}`}
                                   title="View Order Details"
                                 >
                                   <IonIcon icon={eyeOutline} />
@@ -1004,157 +1009,9 @@ const AdminDashboard: React.FC = () => {
             </>
           )}
         </div>
-        
-        {/* Order Items Modal */}
-        <IonModal 
-          isOpen={orderItemsModalOpen} 
-          onDidDismiss={closeOrderItemsModal}
-          className="order-items-modal"
-        >
-          <IonHeader>
-            <IonToolbar>
-              <IonButtons slot="end">
-                <IonButton 
-                  onClick={closeOrderItemsModal}
-                  className="x-close-button"
-                  aria-label="Close"
-                >
-                  {/* No icon needed - X is added via CSS */}
-                </IonButton>
-              </IonButtons>
-              <IonTitle>Order Details</IonTitle>
-            </IonToolbar>
-          </IonHeader>
-          <IonContent className="ion-padding">
-            {selectedOrder && (
-              <div className="order-details-container">
-                <div className="order-header">
-                  <h2>Order #{selectedOrder.orderNumber || selectedOrder._id}</h2>
-                  <p className="order-date">{new Date(selectedOrder.createdAt).toLocaleString()}</p>
-                  <div className="order-status">
-                    <span className={`status-badge status-${selectedOrder.status?.toLowerCase() || selectedOrder.deliveryStatus?.toLowerCase() || 'pending'}`}>
-                      {selectedOrder.status || selectedOrder.deliveryStatus || 'Pending'}
-                    </span>
-                  </div>
-                  <div className="order-customer">
-                    <strong>Customer:</strong> {selectedOrder.user?.name || selectedOrder.deliveryAddress?.fullName || 'Unknown'}
-                  </div>
-                  <div className="order-customer">
-                    <strong>Contact:</strong> {selectedOrder.user?.phone || selectedOrder.deliveryAddress?.phone || 'Not provided'}
-                  </div>
-                  <div className="order-customer">
-                    <strong>Address:</strong> {selectedOrder.deliveryAddress?.addressLine1 || 'Not provided'}
-                  </div>
-                  <div className="order-total">
-                    <strong>Total:</strong> ₹{selectedOrder.total?.toFixed(2) || 0}
-                  </div>
-                </div>
-
-                <div className="order-items">
-                  <h3>Items</h3>
-                  <IonGrid>
-                    <IonRow className="header-row">
-                      <IonCol size="2">Image</IonCol>
-                      <IonCol size="4">Product</IonCol>
-                      <IonCol size="2">Price</IonCol>
-                      <IonCol size="2">Qty</IonCol>
-                      <IonCol size="2">Subtotal</IonCol>
-                    </IonRow>
-                    
-                    {/* Handle different order item structures */}
-                    {selectedOrder.items?.map((item: any, index: number) => (
-                      <IonRow key={`item-${item._id || index}`} className="item-row">
-                        <IonCol size="2">
-                          {item.image ? (
-                            <img 
-                              src={item.image} 
-                              alt={item.name} 
-                              className="product-thumbnail" 
-                            />
-                          ) : (
-                            <div className="no-image">No Image</div>
-                          )}
-                        </IonCol>
-                        <IonCol size="4">{item.name || 'Unknown Product'}</IonCol>
-                        <IonCol size="2">₹{(item.price || 0).toFixed(2)}</IonCol>
-                        <IonCol size="2">{item.quantity}</IonCol>
-                        <IonCol size="2">₹{((item.price || 0) * item.quantity).toFixed(2)}</IonCol>
-                      </IonRow>
-                    ))}
-                    
-                    {/* Handle API format */}
-                    {selectedOrder.products?.map((item: any, index: number) => (
-                      <IonRow key={`product-${item.product?._id || index}`} className="item-row">
-                        <IonCol size="2">
-                          {item.product?.image ? (
-                            <img 
-                              src={item.product.image} 
-                              alt={item.product.name} 
-                              className="product-thumbnail" 
-                            />
-                          ) : (
-                            <div className="no-image">No Image</div>
-                          )}
-                        </IonCol>
-                        <IonCol size="4">{item.product?.name || 'Unknown Product'}</IonCol>
-                        <IonCol size="2">₹{(item.product?.price || 0).toFixed(2)}</IonCol>
-                        <IonCol size="2">{item.quantity}</IonCol>
-                        <IonCol size="2">₹{((item.product?.price || 0) * item.quantity).toFixed(2)}</IonCol>
-                      </IonRow>
-                    ))}
-                    
-                    {/* Handle our normalized format */}
-                    {selectedOrder.orderItems?.map((item: any, index: number) => (
-                      <IonRow key={`orderItem-${item.product?._id || index}`} className="item-row">
-                        <IonCol size="2">
-                          {item.product?.image ? (
-                            <img 
-                              src={item.product.image} 
-                              alt={item.product.name} 
-                              className="product-thumbnail" 
-                            />
-                          ) : (
-                            <div className="no-image">No Image</div>
-                          )}
-                        </IonCol>
-                        <IonCol size="4">{item.product?.name || 'Unknown Product'}</IonCol>
-                        <IonCol size="2">₹{(item.product?.price || 0).toFixed(2)}</IonCol>
-                        <IonCol size="2">{item.quantity}</IonCol>
-                        <IonCol size="2">₹{((item.product?.price || 0) * item.quantity).toFixed(2)}</IonCol>
-                      </IonRow>
-                    ))}
-                  </IonGrid>
-                </div>
-
-                <div className="order-actions">
-                  <h3>Update Status</h3>
-                  <div className="status-buttons">
-                    {['pending', 'processing', 'shipped', 'delivered', 'cancelled'].map(status => (
-                      <button 
-                        key={`status-${status}`}
-                        className={`status-button ${(selectedOrder.status?.toLowerCase() === status || selectedOrder.deliveryStatus?.toLowerCase() === status) ? 'active' : ''}`}
-                        onClick={() => {
-                          setOrderStatusForm({
-                            id: selectedOrder._id || selectedOrder.orderNumber,
-                            status,
-                            orderNumber: selectedOrder.orderNumber || (selectedOrder._id?.substring(selectedOrder._id.length - 6).toUpperCase() || ''),
-                            customerName: selectedOrder.user?.name || selectedOrder.deliveryAddress?.fullName || 'Unknown Customer'
-                          });
-                          handleOrderStatusUpdate({ preventDefault: () => {} } as React.FormEvent);
-                        }}
-                      >
-                        {status.charAt(0).toUpperCase() + status.slice(1)}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-          </IonContent>
-        </IonModal>
+      
       </IonContent>
     </IonPage>
   );
 };
 
-export default AdminDashboard;

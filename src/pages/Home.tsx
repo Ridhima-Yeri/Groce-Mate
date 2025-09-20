@@ -285,7 +285,7 @@ const Home: React.FC = () => {
                 </IonCol>
                 <IonCol size="12" sizeLg="6">
                   <div className="about-image">
-                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&h=400&fit=crop&crop=center" alt="About GroceMate" />
+                    <img src="resources\GroceMate.webp" alt="About GroceMate" />
                   </div>
                 </IonCol>
               </IonRow>

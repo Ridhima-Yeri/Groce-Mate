@@ -21,7 +21,7 @@ import {
   useIonViewDidEnter
 } from '@ionic/react';
 import { useParams, useHistory } from 'react-router-dom';
-import { closeOutline, locationOutline, callOutline, timeOutline, cardOutline, checkmarkCircleOutline, hourglassOutline, closeCircleOutline, alertCircleOutline, chevronBackOutline } from 'ionicons/icons';
+import { closeOutline, locationOutline, callOutline, timeOutline, cardOutline, checkmarkCircleOutline, hourglassOutline, closeCircleOutline, alertCircleOutline, chevronBackOutline, printOutline } from 'ionicons/icons';
 import '../styles/OrderDetails.css';
 import '../styles/PageThemeForce.css';
 
@@ -453,7 +453,7 @@ const OrderDetailsPage: React.FC = () => {
                   className="simple-admin-btn outline"
                   onClick={handlePrint}
                 >
-                  <IonIcon icon={closeOutline} />
+                  <IonIcon icon={printOutline} />
                   Print Order
                 </button>
               </div>

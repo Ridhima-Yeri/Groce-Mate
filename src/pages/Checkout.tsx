@@ -26,7 +26,6 @@ import {
   IonCheckbox,
   IonToast,
   IonSpinner,
-  IonModal
 } from '@ionic/react';
 import {
   locationOutline,
@@ -169,12 +168,9 @@ const Checkout: React.FC = () => {
       clearCart();
 
       setIsLoading(false);
-
-      setTimeout(() => {
-        setToastMessage('Order placed successfully!');
-        setShowToast(true);
-        setShowGoToOrders(true);
-      }, 200);
+      setToastMessage('Order placed successfully!');
+      setShowToast(true);
+      setShowGoToOrders(true);
 
     } catch (error) {
       console.error('Error placing order:', error);

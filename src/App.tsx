@@ -30,9 +30,10 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import Cart from './pages/Cart';
 import Login from './pages/Login';
-import AdminDashboard from './pages/AdminDashboard';
+import { AdminDashboard } from './pages/AdminDashboard';
 import Orders from './pages/Orders';
 import OrderDetails from './pages/OrderDetails';
+import AdminOrderDetails from './pages/AdminOrderDetails';
 import Profile from './pages/Profile';
 import SideMenu from './components/SideMenu';
 import { useState } from 'react';
@@ -161,7 +162,7 @@ const MainLayout: React.FC = () => {
             <IonButtons slot="start">
               {location.pathname !== '/' && location.pathname !== '/home' && (
                 <IonBackButton 
-                  defaultHref={location.pathname.includes('order-details') ? '/orders' : '/'} 
+                  defaultHref={location.pathname.includes('admin-order-details') ? '/admin' : (location.pathname.includes('order-details') ? '/orders' : '/')} 
                   text="" 
                 />
               )}
@@ -183,9 +184,10 @@ const MainLayout: React.FC = () => {
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/checkout" component={Checkout} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/admin" component={AdminDashboard} />
+            <Route exact path="/admin" render={() => <AdminDashboard />} />
             <Route exact path="/orders" component={Orders} />
             <Route exact path="/order-details/:orderId" component={OrderDetails} />
+            <Route exact path="/admin-order-details/:orderId" component={AdminOrderDetails} />
             <Route exact path="/profile" component={Profile} />
           </IonRouterOutlet>
           <TabBar />

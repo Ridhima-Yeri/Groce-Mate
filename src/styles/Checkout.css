@@ -268,7 +268,6 @@ ion-card ion-card-title ion-icon {
   padding: 1rem 0;
   position: sticky;
   bottom: 0;
-  background: var(--ion-background-color);
   z-index: 1000;
 }
 
